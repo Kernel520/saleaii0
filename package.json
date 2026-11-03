@@ -1,0 +1,9 @@
+{
+  "name": "aii0-domain-site",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node -e \"require('node:fs').cpSync('public', 'dist', { recursive: true })\"",
+    "preview": "node preview.cjs"
+  }
+}
