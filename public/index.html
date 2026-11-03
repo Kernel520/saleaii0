@@ -7,6 +7,9 @@
 <meta property="og:title" content="aii0.com · 四字符域名出售">
 <meta property="og:description" content="一个四字符 .com 域名，AI 原生气质，正在寻找下一位主人。">
 <meta property="og:type" content="website">
+<link rel="icon" href="/favicon.svg?v=2" sizes="any" type="image/svg+xml">
+<link rel="icon" href="/favicon.png?v=2" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>aii0.com · 域名出售</title>
 <style>
   * { box-sizing: border-box; }
@@ -249,7 +252,7 @@
   .score { display: grid; grid-template-columns: 74px 1fr 34px; align-items: center; gap: 12px; }
   .score .name { font-size: 12px; color: var(--muted); }
   .score .track { height: 6px; border-radius: 3px; background: rgba(0,0,0,.06); overflow: hidden; }
-  .score .fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, #4b4b48, var(--ink)); width: 0; transition: width 1s cubic-bezier(.2,.7,.2,1); }
+  .score .fill { display: block; height: 100%; border-radius: 3px; background: linear-gradient(90deg, #4b4b48, var(--ink)); width: 0; transition: width 1s cubic-bezier(.2,.7,.2,1); }
   .score .val { font: 600 11px/1 var(--mono); text-align: right; color: var(--muted); }
   .score-note { margin: 0; padding: 10px 16px 14px; font: 400 10.5px/1.5 var(--mono); color: var(--faint); border-top: .5px solid var(--line2); }
 
@@ -286,7 +289,9 @@
   .task-head { display: flex; align-items: center; gap: 9px; padding: 13px 16px; border-bottom: .5px solid var(--line2); }
   .task-head .t { font-size: 12.5px; font-weight: 600; }
   .task-row { display: flex; align-items: center; gap: 11px; padding: 13px 16px; border-bottom: .5px solid var(--line2); }
-  .task-row:last-of-type { border-bottom: 0; }
+  .task-row { width: 100%; border: 0; border-bottom: .5px solid var(--line2); background: transparent; font: inherit; color: inherit; text-align: left; cursor: pointer; }
+  .task-row:hover, .task-row[aria-pressed="true"] { background: var(--surface); }
+  .task-row:focus-visible { outline: 2px solid currentColor; outline-offset: -3px; }
   .task-row .ti {
     width: 20px; height: 20px; border-radius: 50%; flex: none;
     display: inline-flex; align-items: center; justify-content: center;
@@ -294,7 +299,7 @@
   }
   .ti-done { background: var(--green); } .ti-now { background: var(--amber); } .ti-wait { background: rgba(32,32,32,.16); color: var(--muted) !important; }
   .task-row .tt { font-size: 13px; font-weight: 500; }
-  .task-row .td { font-size: 11px; color: var(--faint); margin-top: 2px; }
+  .task-row .td { display: block; font-size: 11px; color: var(--faint); margin-top: 2px; }
   .badge { margin-left: auto; font: 600 9.5px/1 var(--mono); letter-spacing: .08em; padding: 4px 8px; border-radius: 5px; text-transform: uppercase; flex: none; }
   .b-you { color: #b4530a; background: rgba(245,158,11,.13); }
   .b-escrow { color: #1663b8; background: rgba(70,171,253,.14); }
@@ -501,10 +506,10 @@
         <div class="panel reveal">
           <div class="panel-head"><span class="t">品牌适配评分（卖方自评）</span><span class="mono" style="font-size:10px;color:var(--faint)">OUT OF 100</span></div>
           <div class="score-body">
-            <div class="score"><span class="name">简短度</span><span class="track"><span class="fill" data-w="100"></span></span><span class="val">98</span></div>
-            <div class="score"><span class="name">记忆度</span><span class="track"><span class="fill" data-w="92"></span></span><span class="val">92</span></div>
-            <div class="score"><span class="name">发音度</span><span class="track"><span class="fill" data-w="88"></span></span><span class="val">88</span></div>
-            <div class="score"><span class="name">品牌感</span><span class="track"><span class="fill" data-w="94"></span></span><span class="val">94</span></div>
+            <div class="score"><span class="name">简短度</span><span class="track"><span class="fill" style="width:98%"></span></span><span class="val">98</span></div>
+            <div class="score"><span class="name">记忆度</span><span class="track"><span class="fill" style="width:92%"></span></span><span class="val">92</span></div>
+            <div class="score"><span class="name">发音度</span><span class="track"><span class="fill" style="width:88%"></span></span><span class="val">88</span></div>
+            <div class="score"><span class="name">品牌感</span><span class="track"><span class="fill" style="width:94%"></span></span><span class="val">94</span></div>
           </div>
         </div>
       </div>
@@ -535,29 +540,29 @@
       <div class="reveal">
         <div class="task-card">
           <div class="task-head"><span class="dot dot-g"></span><span class="t">aii0.com · 交割看板</span><span class="live-pill" style="margin-left:auto"><span class="mono" style="color:var(--faint)">EST. 3–7 DAYS</span></span></div>
-          <div class="task-row">
+          <button type="button" class="task-row" aria-pressed="false">
             <span class="ti ti-done">✓</span>
             <span><span class="tt">邮件询价</span><span class="td">说明预算区间与用途</span></span>
             <span class="badge b-you">你的动作</span>
-          </div>
-          <div class="task-row">
+          </button>
+          <button type="button" class="task-row" aria-pressed="true">
             <span class="ti ti-now">2</span>
             <span><span class="tt">报价与确认</span><span class="td">双方确认价格、币种与条款</span></span>
             <span class="badge b-you">你的动作</span>
-          </div>
-          <div class="task-row">
+          </button>
+          <button type="button" class="task-row" aria-pressed="false">
             <span class="ti ti-wait">3</span>
             <span><span class="tt">资金托管</span><span class="td">Escrow / 平台托管，资金先行冻结</span></span>
             <span class="badge b-escrow">Escrow</span>
-          </div>
-          <div class="task-row">
+          </button>
+          <button type="button" class="task-row" aria-pressed="false">
             <span class="ti ti-wait">4</span>
             <span><span class="tt">过户与交付</span><span class="td">注册商转移 + DNS 交接，确认后放款</span></span>
             <span class="badge b-reg">注册商</span>
-          </div>
+          </button>
           <div class="task-foot">
-            <div class="bar"><i id="dealBar"></i></div>
-            <p class="cap">进度示意 · Step 2 / 4 · 报价确认中</p>
+            <div class="bar"><i id="dealBar" style="width:50%"></i></div>
+            <p class="cap" id="dealStatus" aria-live="polite">进度示意 · Step 2 / 4 · 报价确认中</p>
           </div>
         </div>
       </div>
@@ -662,14 +667,27 @@
     });
   });
 
+  var steps = document.querySelectorAll(".task-card .task-row");
+  steps.forEach(function (step, selected) {
+    step.addEventListener("click", function () {
+      steps.forEach(function (row, index) {
+        row.setAttribute("aria-pressed", String(index === selected));
+        var marker = row.querySelector(".ti");
+        marker.className = "ti " + (index < selected ? "ti-done" : index === selected ? "ti-now" : "ti-wait");
+        marker.textContent = index < selected ? "✓" : index + 1;
+      });
+      var current = selected + 1;
+      document.getElementById("dealBar").style.width = (current / steps.length * 100) + "%";
+      document.getElementById("dealStatus").textContent =
+        "进度示意 · Step " + current + " / " + steps.length + " · " + step.querySelector(".tt").textContent;
+    });
+  });
+
   /* --- 入场动画 --- */
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (en) {
       if (en.isIntersecting) {
         en.target.classList.add("in");
-        en.target.querySelectorAll(".fill").forEach(function (f) { f.style.width = f.dataset.w + "%"; });
-        var bar = en.target.querySelector("#dealBar");
-        if (bar) bar.style.width = "50%";
         var line = en.target.querySelector("#chartLine");
         if (line) { line.style.strokeDasharray = 1; line.style.strokeDashoffset = 1; line.getBoundingClientRect(); line.style.transition = "stroke-dashoffset 1.4s ease .2s"; line.style.strokeDashoffset = 0; }
         io.unobserve(en.target);

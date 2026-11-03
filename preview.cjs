@@ -4,7 +4,10 @@ const { join } = require('node:path');
 
 const routes = new Map([
   ['/', ['index.html', 'text/html; charset=utf-8']],
-  ['/park.png', ['park.png', 'image/png']]
+  ['/park.png', ['park.png', 'image/png']],
+  ['/favicon.svg', ['favicon.svg', 'image/svg+xml']],
+  ['/favicon.png', ['favicon.png', 'image/png']],
+  ['/apple-touch-icon.png', ['apple-touch-icon.png', 'image/png']]
 ]);
 
 createServer((request, response) => {
