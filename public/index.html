@@ -3,60 +3,726 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="aii0.com 四字符域名出售，欢迎来信询价。">
+<meta name="description" content="aii0.com 四字符 .com 域名出售，AI 原生品牌气质，支持 Escrow 安全托管交易，欢迎来信询价。">
+<meta property="og:title" content="aii0.com · 四字符域名出售">
+<meta property="og:description" content="一个四字符 .com 域名，AI 原生气质，正在寻找下一位主人。">
+<meta property="og:type" content="website">
 <title>aii0.com · 域名出售</title>
 <style>
   * { box-sizing: border-box; }
-  :root { font: 16px/1.6 system-ui, sans-serif; color: #192b24; background: #f8f9f4; }
-  body { margin: 0; }
+  :root {
+    --surface: #F5F5F2;
+    --surface-deep: #F0F0EC;
+    --raised: #FBFBF8;
+    --ink: #202020;
+    --muted: rgba(38,35,35,.56);
+    --faint: rgba(38,35,35,.34);
+    --line: rgba(0,0,0,.08);
+    --line2: #E7E7E3;
+    --green: #34A853;
+    --amber: #F59E0B;
+    --blue: #46ABFD;
+    --orange: #FF672F;
+    --card-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 0 20px rgba(0,0,0,.03),
+                   0 36px 28px rgba(0,0,0,.02), 0 25px 25px rgba(0,0,0,.02),
+                   inset 0 0 0 1px #fff;
+    --mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", "IBM Plex Mono", Menlo, Consolas, monospace;
+    --sans: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    --header-h: 64px;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; font: 400 16px/1.6 var(--sans);
+    color: var(--ink); background: var(--surface);
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
   a { color: inherit; }
-  .site { min-height: 100vh; background: #f8f9f4; }
-  header, footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px clamp(16px, 5vw, 76px); flex-wrap: wrap; }
-  header { border-bottom: 1px solid #dce4d9; }
-  .wordmark { font-weight: 800; text-decoration: none; letter-spacing: -.04em; }
-  .hero { padding: clamp(40px, 7vw, 100px) 16px 0; text-align: center; }
-  .kicker { font: 700 .78rem/1.5 ui-monospace, monospace; letter-spacing: .15em; color: #2d6552; }
-  h1 { margin: 0; font-size: clamp(3.5rem, 12vw, 9rem); line-height: 1; letter-spacing: -.085em; }
-  .subtitle { margin: 18px auto 24px; color: #42554b; }
-  .button { display: inline-block; padding: 10px 18px; border-radius: 8px; border: 1px solid #214537; background: #214537; color: #fff; text-decoration: none; font: inherit; cursor: pointer; }
-  .button:hover { background: #35654f; }
-  :focus-visible { outline: 3px solid #2377c5; outline-offset: 4px; }
-  figure { position: relative; max-width: 1220px; margin: 36px auto 0; overflow: hidden; border: 1px solid #749b8a; border-radius: 12px; background: #75c7f6; }
-  figure img { display: block; width: 100%; aspect-ratio: 16/9; min-height: 260px; object-fit: cover; image-rendering: pixelated; }
-  figcaption { position: absolute; right: 5%; bottom: 10%; padding: 9px 13px; border: 1px solid #263b31; background: #fffdf1; box-shadow: 4px 4px #263b31; font: .8rem ui-monospace, monospace; }
-  .info { max-width: 940px; margin: auto; padding: 64px 20px; }
-  h2 { font-size: clamp(1.8rem, 5vw, 3rem); letter-spacing: -.06em; margin: 0; }
-  dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
-  dl div { border: 1px solid #d0ddcf; background: #eef4eb; padding: 16px; }
-  dt { color: #455d50; }
-  dd { margin: 0; font: 700 1.4rem ui-monospace, monospace; }
-  details { border-block: 1px solid #d0ddcf; padding: 14px 0; }
-  summary { cursor: pointer; }
-  footer { border-top: 1px solid #dce4d9; }
+  ::selection { background: rgba(255,103,47,.22); }
+  :focus-visible { outline: 3px solid #2377C5; outline-offset: 3px; border-radius: 4px; }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- 字体体系 ---------- */
+  .eyebrow {
+    font: 600 11px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase;
+    color: var(--muted); display: inline-flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::after { content: ""; width: 34px; height: 1px; background: var(--line); }
+  h1, h2 { font-weight: 450; letter-spacing: -.025em; margin: 0; }
+  h2 { font-size: clamp(28px, 4.2vw, 40px); line-height: 115%; }
+  .lede { font-size: 15.5px; font-weight: 450; letter-spacing: .15px; line-height: 150%; color: var(--muted); max-width: 460px; margin: 14px 0 0; }
+  .mono { font-family: var(--mono); }
+
+  /* ---------- 按钮 ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+    height: 41px; padding: 0 16px; border-radius: 8px; border: 0;
+    font: 500 15px/1 var(--sans); letter-spacing: .15px;
+    text-decoration: none; cursor: pointer; white-space: nowrap;
+    transition: background .18s ease, transform .18s ease, box-shadow .18s ease;
+  }
+  .btn-dark { background: var(--ink); color: #fff; }
+  .btn-dark:hover { background: #3a3a38; }
+  .btn-light { background: #fff; color: var(--ink); box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.06); }
+  .btn-light:hover { background: #f2f2ee; }
+  .btn-glass {
+    background: rgba(255,255,255,.24); color: #fff;
+    backdrop-filter: blur(16px) saturate(1.2); -webkit-backdrop-filter: blur(16px) saturate(1.2);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.3), 0 8px 24px rgba(0,0,0,.18);
+  }
+  .btn-glass:hover { background: rgba(255,255,255,.34); }
+  .btn-glass.copied, .btn-light.copied { color: var(--green); }
+  .btn-light.copied { box-shadow: 0 0 0 1px rgba(52,168,83,.4); }
+  .btn .arr { font-family: var(--mono); font-size: 13px; opacity: .75; }
+
+  /* ---------- 顶部导航 ---------- */
+  header {
+    position: fixed; inset: 0 0 auto; z-index: 50; height: var(--header-h);
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 0 clamp(16px, 4vw, 44px);
+    transition: background .25s ease, box-shadow .25s ease;
+  }
+  header.scrolled {
+    background: rgba(251,251,248,.82);
+    backdrop-filter: blur(14px) saturate(1.2); -webkit-backdrop-filter: blur(14px) saturate(1.2);
+    box-shadow: 0 0 0 1px var(--line), 0 8px 24px rgba(0,0,0,.04);
+  }
+  .wordmark { font: 700 17px/1 var(--mono); letter-spacing: -.04em; text-decoration: none; }
+  nav { display: flex; gap: 26px; }
+  nav a {
+    font-size: 13.5px; font-weight: 500; letter-spacing: .1px; text-decoration: none; opacity: .8;
+    transition: opacity .15s ease;
+  }
+  nav a:hover { opacity: 1; }
+  header .btn { height: 34px; font-size: 13.5px; padding: 0 13px; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative; min-height: max(92vh, 660px);
+    display: flex; align-items: flex-end; overflow: hidden;
+    background: #0d120e; color: #fff;
+  }
+  .hero-art, .hero-shade { position: absolute; inset: 0; }
+  .hero-art {
+    background: url("park.png") center 40% / cover no-repeat;
+    filter: saturate(1.08);
+  }
+  .hero-shade {
+    background:
+      radial-gradient(120% 90% at 72% 20%, rgba(10,14,10,0) 0%, rgba(10,14,10,.42) 100%),
+      linear-gradient(180deg, rgba(10,14,10,.5) 0%, rgba(10,14,10,.18) 32%, rgba(10,14,10,.62) 74%, #0f130f 100%);
+  }
+  .hero-inner {
+    position: relative; z-index: 2; width: 100%;
+    max-width: 1440px; margin: 0 auto; padding: 140px clamp(20px, 5vw, 76px) 84px;
+  }
+  .hero .eyebrow { color: rgba(255,255,255,.75); }
+  .hero .eyebrow::after { background: rgba(255,255,255,.28); }
+  .hero h1 {
+    margin: 20px 0 0;
+    font-size: clamp(56px, 12vw, 148px); line-height: 100%; letter-spacing: -.05em;
+    background: linear-gradient(180deg, #fff 30%, rgba(255,255,255,.66) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,.28));
+  }
+  .hero .lede {
+    color: rgba(255,255,255,.82); max-width: 480px; margin-top: 18px;
+    text-shadow: 0 1px 2px rgba(0,0,0,.2);
+  }
+  .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 30px; }
+  .hero-meta {
+    margin-top: 26px; font: 500 11.5px/1.8 var(--mono); letter-spacing: .12em;
+    text-transform: uppercase; color: rgba(255,255,255,.6);
+  }
+  .hero-meta b { color: rgba(255,255,255,.92); font-weight: 600; }
+
+  /* 玻璃浮动通知卡（cofounder hero 语法） */
+  .notif-stack {
+    position: absolute; z-index: 2; right: clamp(24px, 7vw, 120px); top: 17%;
+    width: 268px; display: flex; flex-direction: column; gap: 14px;
+    transform: perspective(320px) rotateX(-2deg) rotateY(-12deg) rotateZ(2deg);
+    pointer-events: none;
+  }
+  .notif {
+    background: rgba(250,250,248,.78);
+    backdrop-filter: blur(16px) saturate(1.2); -webkit-backdrop-filter: blur(16px) saturate(1.2);
+    border-radius: 12px; padding: 13px 15px; color: var(--ink);
+    box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 24px 32px rgba(0,0,0,.22), inset 0 0 0 1px #fff;
+    animation: floaty 6s ease-in-out infinite;
+  }
+  .notif:nth-child(2) { animation-delay: -2s; margin-left: 22px; }
+  .notif:nth-child(3) { animation-delay: -4s; }
+  .notif-head { display: flex; align-items: center; gap: 8px; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+  .dot-g { background: var(--green); box-shadow: 0 0 0 3px rgba(52,168,83,.18); }
+  .dot-o { background: var(--orange); box-shadow: 0 0 0 3px rgba(255,103,47,.16); }
+  .dot-b { background: var(--blue); box-shadow: 0 0 0 3px rgba(70,171,253,.18); }
+  .notif-title { font-size: 12.5px; font-weight: 600; letter-spacing: .1px; }
+  .notif-sub { margin-top: 3px; font-size: 11px; color: var(--muted); }
+  .notif-time { font: 500 9.5px/1 var(--mono); color: var(--faint); margin-left: auto; letter-spacing: .05em; }
+  @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+  .hero-cue {
+    position: absolute; z-index: 2; left: 50%; bottom: 22px; transform: translateX(-50%);
+    font: 500 10px/1 var(--mono); letter-spacing: .3em; text-transform: uppercase;
+    color: rgba(255,255,255,.55); animation: cue 2.4s ease-in-out infinite;
+  }
+  @keyframes cue { 0%,100% { transform: translate(-50%, 0); opacity: .55; } 50% { transform: translate(-50%, 6px); opacity: .95; } }
+
+  /* ---------- 场景跑马灯 ---------- */
+  .ticker { border-block: 1px solid var(--line2); background: var(--raised); overflow: hidden; }
+  .ticker-track { display: flex; width: max-content; animation: tick 36s linear infinite; }
+  .ticker:hover .ticker-track { animation-play-state: paused; }
+  .ticker-seq { display: flex; align-items: center; padding: 15px 0; }
+  .ticker-seq span {
+    font: 600 12px/1 var(--mono); letter-spacing: .18em; text-transform: uppercase;
+    color: var(--muted); padding: 0 26px; white-space: nowrap;
+  }
+  .ticker-seq i { color: var(--faint); font-style: normal; }
+  @keyframes tick { to { transform: translateX(-50%); } }
+
+  /* ---------- 通用 Section ---------- */
+  section.block { padding: clamp(72px, 10vw, 120px) 0; scroll-margin-top: 76px; }
+  section.block + section.block { border-top: 1px solid var(--line2); }
+  .sec-head { margin-bottom: clamp(36px, 5vw, 56px); }
+  .sec-head h2 { margin-top: 16px; max-width: 640px; }
+
+  /* ---------- 1.0 为什么值得 ---------- */
+  .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .feat {
+    background: var(--raised); border-radius: 12px; padding: 24px 22px 26px;
+    box-shadow: var(--card-shadow); position: relative; overflow: hidden;
+  }
+  .feat .idx { font: 600 11px/1 var(--mono); letter-spacing: .12em; color: var(--faint); }
+  .feat h3 { margin: 42px 0 8px; font-size: 18px; font-weight: 550; letter-spacing: -.01em; }
+  .feat p { margin: 0; font-size: 13.5px; line-height: 160%; color: var(--muted); }
+  .feat-visual { position: absolute; top: 20px; right: 20px; }
+  .keycap-sm {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; border-radius: 7px; background: #fff;
+    box-shadow: 0 0 0 1px var(--line), 0 1px 0 rgba(0,0,0,.06), inset 0 -2px 0 rgba(0,0,0,.04);
+    font: 600 12px/1 var(--mono);
+  }
+  .keycap-sm + .keycap-sm { margin-left: 4px; }
+  .keycap-sm.hot { background: var(--ink); color: #fff; }
+  .wave { display: inline-flex; align-items: flex-end; gap: 2.5px; height: 26px; }
+  .wave i { width: 3.5px; border-radius: 2px; background: var(--ink); opacity: .85; animation: wave 1.2s ease-in-out infinite; }
+  .wave i:nth-child(1) { height: 8px; }
+  .wave i:nth-child(2) { height: 18px; animation-delay: .15s; }
+  .wave i:nth-child(3) { height: 26px; animation-delay: .3s; }
+  .wave i:nth-child(4) { height: 14px; animation-delay: .45s; }
+  .wave i:nth-child(5) { height: 22px; animation-delay: .6s; }
+  @keyframes wave { 50% { transform: scaleY(.45); } }
+  .globe { width: 30px; height: 30px; border-radius: 50%; box-shadow: 0 0 0 1px var(--line), inset 0 0 0 1px rgba(0,0,0,.04); position: relative; overflow: hidden; background: #fff; }
+  .globe::before, .globe::after { content: ""; position: absolute; border: 1px solid rgba(32,32,32,.35); border-radius: 50%; }
+  .globe::before { inset: 0 6px; }
+  .globe::after { inset: 6px 0; }
+  .globe em { position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: rgba(32,32,32,.35); }
+
+  /* ---------- 2.0 域名档案 ---------- */
+  #dossier { background: var(--surface-deep); }
+  .dossier-grid { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(28px, 4vw, 56px); align-items: start; }
+  .dash { display: flex; flex-direction: column; gap: 16px; }
+  .dash-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .stat {
+    background: var(--raised); border-radius: 12px; padding: 14px 16px; box-shadow: var(--card-shadow);
+  }
+  .stat .label { font-size: 10.5px; color: var(--muted); }
+  .stat .value { margin-top: 6px; font: 500 20px/1 var(--mono); letter-spacing: -.03em; }
+  .stat .delta { display: inline-block; margin-top: 9px; font: 600 10px/1 var(--mono); padding: 3px 6px; border-radius: 5px; }
+  .delta-up { color: #1a7f3c; background: rgba(52,168,83,.12); }
+  .delta-warm { color: #b4530a; background: rgba(245,158,11,.14); }
+  .panel {
+    background: var(--raised); border-radius: 12px; box-shadow: var(--card-shadow); overflow: hidden;
+  }
+  .panel-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 16px; border-bottom: .5px solid var(--line2);
+  }
+  .panel-head .t { font-size: 12px; font-weight: 600; letter-spacing: .05em; }
+  .live-pill { display: inline-flex; align-items: center; gap: 6px; font: 600 9.5px/1 var(--mono); letter-spacing: .1em; color: var(--muted); }
+  .chart-body { padding: 16px 16px 12px; }
+  .chart-body svg { display: block; width: 100%; height: auto; }
+  .chart-legend { display: flex; gap: 14px; padding: 0 16px 14px; }
+  .chart-legend span { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; color: var(--muted); }
+  .chart-legend .sw { width: 6px; height: 6px; border-radius: 50%; }
+  .score-body { padding: 16px; display: grid; gap: 13px; }
+  .score { display: grid; grid-template-columns: 74px 1fr 34px; align-items: center; gap: 12px; }
+  .score .name { font-size: 12px; color: var(--muted); }
+  .score .track { height: 6px; border-radius: 3px; background: rgba(0,0,0,.06); overflow: hidden; }
+  .score .fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, #4b4b48, var(--ink)); width: 0; transition: width 1s cubic-bezier(.2,.7,.2,1); }
+  .score .val { font: 600 11px/1 var(--mono); text-align: right; color: var(--muted); }
+  .score-note { margin: 0; padding: 10px 16px 14px; font: 400 10.5px/1.5 var(--mono); color: var(--faint); border-top: .5px solid var(--line2); }
+
+  /* ---------- 3.0 字母键盘 ---------- */
+  #uses { text-align: center; }
+  #uses .lede { margin-inline: auto; }
+  .board { margin: 44px auto 0; display: flex; flex-direction: column; gap: 9px; align-items: center; }
+  .board-row { display: flex; gap: 9px; flex-wrap: wrap; justify-content: center; }
+  .keycap {
+    width: 38px; height: 38px; border-radius: 9px; background: var(--raised);
+    display: inline-flex; align-items: center; justify-content: center;
+    font: 600 13px/1 var(--mono); color: var(--muted);
+    box-shadow: 0 0 0 1px var(--line), 0 1.5px 0 rgba(0,0,0,.07), inset 0 -2.5px 0 rgba(0,0,0,.04);
+    transition: transform .18s ease, background .25s ease, color .25s ease, box-shadow .25s ease;
+    cursor: default; user-select: none;
+  }
+  .keycap:hover { transform: translateY(2px); box-shadow: 0 0 0 1px var(--line), inset 0 -1px 0 rgba(0,0,0,.04); }
+  .keycap.lit {
+    background: var(--ink); color: #fff; transform: translateY(2px);
+    box-shadow: 0 0 0 1px rgba(0,0,0,.2), inset 0 -1px 0 rgba(0,0,0,.1);
+  }
+  .board-gap { width: 14px; }
+  .board-caption { margin-top: 26px; font: 500 11px/1.8 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
+
+  /* ---------- 4.0 交易流程 ---------- */
+  .deal-grid { display: grid; grid-template-columns: 5fr 6fr; gap: clamp(28px, 4vw, 56px); align-items: center; }
+  .steps { display: grid; gap: 0; counter-reset: step; }
+  .step { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line2); }
+  .step:last-child { border-bottom: 0; }
+  .step .n { font: 600 11px/1.9 var(--mono); color: var(--faint); }
+  .step h4 { margin: 0; font-size: 15px; font-weight: 550; letter-spacing: -.005em; }
+  .step p { margin: 4px 0 0; font-size: 13px; line-height: 155%; color: var(--muted); }
+  .task-card { background: var(--raised); border-radius: 12px; box-shadow: var(--card-shadow); overflow: hidden; }
+  .task-head { display: flex; align-items: center; gap: 9px; padding: 13px 16px; border-bottom: .5px solid var(--line2); }
+  .task-head .t { font-size: 12.5px; font-weight: 600; }
+  .task-row { display: flex; align-items: center; gap: 11px; padding: 13px 16px; border-bottom: .5px solid var(--line2); }
+  .task-row:last-of-type { border-bottom: 0; }
+  .task-row .ti {
+    width: 20px; height: 20px; border-radius: 50%; flex: none;
+    display: inline-flex; align-items: center; justify-content: center;
+    font: 600 9.5px/1 var(--mono); color: #fff;
+  }
+  .ti-done { background: var(--green); } .ti-now { background: var(--amber); } .ti-wait { background: rgba(32,32,32,.16); color: var(--muted) !important; }
+  .task-row .tt { font-size: 13px; font-weight: 500; }
+  .task-row .td { font-size: 11px; color: var(--faint); margin-top: 2px; }
+  .badge { margin-left: auto; font: 600 9.5px/1 var(--mono); letter-spacing: .08em; padding: 4px 8px; border-radius: 5px; text-transform: uppercase; flex: none; }
+  .b-you { color: #b4530a; background: rgba(245,158,11,.13); }
+  .b-escrow { color: #1663b8; background: rgba(70,171,253,.14); }
+  .b-reg { color: #1a7f3c; background: rgba(52,168,83,.13); }
+  .task-foot { padding: 12px 16px; background: var(--surface); border-top: .5px solid var(--line2); }
+  .task-foot .bar { height: 5px; border-radius: 3px; background: rgba(0,0,0,.07); overflow: hidden; }
+  .task-foot .bar i { display: block; height: 100%; width: 0; background: var(--ink); border-radius: 3px; transition: width 1.2s cubic-bezier(.2,.7,.2,1) .2s; }
+  .task-foot .cap { margin-top: 9px; font: 400 10.5px/1.5 var(--mono); color: var(--faint); }
+
+  /* ---------- 5.0 FAQ ---------- */
+  #faq .faq-list { max-width: 720px; margin: 0 auto; }
+  details { border-bottom: 1px solid var(--line2); }
+  details:first-of-type { border-top: 1px solid var(--line2); }
+  summary {
+    cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding: 19px 2px; font-size: 15.5px; font-weight: 500; letter-spacing: -.005em;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary .plus { position: relative; width: 14px; height: 14px; flex: none; opacity: .5; }
+  summary .plus::before, summary .plus::after { content: ""; position: absolute; background: var(--ink); transition: transform .2s ease; }
+  summary .plus::before { left: 0; right: 0; top: 6.5px; height: 1.5px; }
+  summary .plus::after { top: 0; bottom: 0; left: 6.5px; width: 1.5px; }
+  details[open] summary .plus::after { transform: scaleY(0); }
+  details p { margin: 0; padding: 0 26px 20px 2px; font-size: 14px; line-height: 170%; color: var(--muted); }
+  details a { text-decoration-color: var(--faint); }
+
+  /* ---------- 6.0 收尾 CTA ---------- */
+  #contact { background: var(--surface-deep); text-align: center; }
+  #contact .lede { margin-inline: auto; }
+  .art-frame {
+    position: relative; max-width: 860px; margin: 48px auto 0; border-radius: 14px; overflow: hidden;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 40px 60px rgba(0,0,0,.1);
+  }
+  .art-frame img { display: block; width: 100%; aspect-ratio: 16/8.6; object-fit: cover; }
+  .art-frame figcaption {
+    position: absolute; right: 5%; bottom: 9%;
+    padding: 9px 13px; border-radius: 8px;
+    background: rgba(250,250,248,.85); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 12px 24px rgba(0,0,0,.18);
+    font: 500 11px/1 var(--mono); letter-spacing: .06em;
+  }
+  .contact-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 40px; }
+  .contact-note { margin-top: 22px; font: 500 11px/1.9 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--faint); }
+
+  footer {
+    border-top: 1px solid var(--line2); background: var(--raised);
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+    padding: 22px clamp(20px, 5vw, 76px);
+    font-size: 12.5px; color: var(--muted);
+  }
+  footer .mono { font-size: 11px; letter-spacing: .08em; }
+
+  /* ---------- 入场动画 ---------- */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (max-width: 960px) {
+    .trio { grid-template-columns: 1fr; }
+    .dossier-grid, .deal-grid { grid-template-columns: 1fr; }
+    .notif-stack { display: none; }
+    nav { display: none; }
+  }
+  @media (max-width: 560px) {
+    .dash-row { grid-template-columns: 1fr 1fr; }
+    .stat:last-child { display: none; }
+    .keycap { width: 32px; height: 32px; font-size: 11px; }
+    .board-gap { width: 0; }
+    .hero-inner { padding-top: 120px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .notif, .hero-cue, .wave i, .ticker-track { animation: none !important; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
 </style>
 </head>
 <body>
-<div class="site">
-  <header><a class="wordmark" href="./">aii0.com</a><a href="#contact">购买咨询 ↗</a></header>
-  <main>
-    <section class="hero" aria-labelledby="domain">
-      <p class="kicker">DOMAIN FOR SALE</p>
+
+<header id="topbar">
+  <a class="wordmark" href="./">aii0.com</a>
+  <nav aria-label="页面导航">
+    <a href="#why">亮点</a>
+    <a href="#dossier">域名档案</a>
+    <a href="#uses">适合做什么</a>
+    <a href="#deal">交易流程</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <a class="btn btn-dark" href="mailto:email@aii0.com?subject=aii0.com%20%E8%AF%A2%E4%BB%B7">邮件询价 <span class="arr">↗</span></a>
+</header>
+
+<main>
+  <!-- ============ Hero ============ -->
+  <section class="hero" aria-labelledby="domain">
+    <div class="hero-art" aria-hidden="true"></div>
+    <div class="hero-shade" aria-hidden="true"></div>
+
+    <div class="notif-stack" aria-hidden="true">
+      <div class="notif">
+        <div class="notif-head"><span class="dot dot-g"></span><span class="notif-title">域名状态 · 在售</span><span class="notif-time">NOW</span></div>
+        <div class="notif-sub">询价通道已开启，邮件 24 小时内回复</div>
+      </div>
+      <div class="notif">
+        <div class="notif-head"><span class="dot dot-b"></span><span class="notif-title">Escrow 安全托管</span><span class="notif-time">SUPPORTED</span></div>
+        <div class="notif-sub">资金托管后过户，双方都有保障</div>
+      </div>
+      <div class="notif">
+        <div class="notif-head"><span class="dot dot-o"></span><span class="notif-title">读作 “AI-Zero”</span><span class="notif-time">4 CHARS</span></div>
+        <div class="notif-sub">AI 原生气质，天然带品牌记忆点</div>
+      </div>
+    </div>
+
+    <div class="hero-inner">
+      <p class="eyebrow">For Sale · 四字符 .Com</p>
       <h1 id="domain">aii0.com</h1>
-      <p class="subtitle">一个四字符 .com 域名，正在寻找下一位主人。</p>
-      <a class="button" href="mailto:email@aii0.com?subject=aii0.com%20%E8%AF%A2%E4%BB%B7">邮件询价 ↗</a>
-      <figure>
-        <img src="park.png" alt="像素画中的蓝天、草地和一台打开的电脑" fetchpriority="high">
+      <p class="lede">一个四字符 .com 域名，读作 “AI-Zero”。正在寻找下一位主人——也许是一支想从零开始的团队。</p>
+      <div class="hero-cta">
+        <a class="btn btn-light" href="mailto:email@aii0.com?subject=aii0.com%20%E8%AF%A2%E4%BB%B7">邮件询价 <span class="arr">↗</span></a>
+        <button class="btn btn-glass" type="button" data-copy="email@aii0.com">
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="4.5" y="4.5" width="8" height="8" rx="1.6" stroke="currentColor" stroke-width="1.3"/><path d="M9.5 4.5V3A1.5 1.5 0 0 0 8 1.5H3A1.5 1.5 0 0 0 1.5 3v5A1.5 1.5 0 0 0 3 9.5h1.5" stroke="currentColor" stroke-width="1.3"/></svg>
+          <span class="copy-label">复制邮箱</span>
+        </button>
+      </div>
+      <p class="hero-meta"><b>4</b> 字符 &nbsp;·&nbsp; <b>.com</b> 全球通用后缀 &nbsp;·&nbsp; 价格面议 &nbsp;·&nbsp; 支持 Escrow 托管</p>
+    </div>
+    <span class="hero-cue" aria-hidden="true">Scroll</span>
+  </section>
+
+  <!-- ============ 场景跑马灯 ============ -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track" id="tickerTrack">
+      <div class="ticker-seq" id="tickerSeq">
+        <span>AI Agent</span><i>✦</i><span>AIGC Studio</span><i>✦</i><span>SaaS</span><i>✦</i><span>Dev Tool</span><i>✦</i><span>AI Hardware</span><i>✦</i><span>实验室</span><i>✦</i><span>独立开发者</span><i>✦</i><span>品牌官网</span><i>✦</i><span>个人主页</span><i>✦</i><span>Newsletter</span><i>✦</i>
+      </div>
+      <div class="ticker-seq" aria-hidden="true">
+        <span>AI Agent</span><i>✦</i><span>AIGC Studio</span><i>✦</i><span>SaaS</span><i>✦</i><span>Dev Tool</span><i>✦</i><span>AI Hardware</span><i>✦</i><span>实验室</span><i>✦</i><span>独立开发者</span><i>✦</i><span>品牌官网</span><i>✦</i><span>个人主页</span><i>✦</i><span>Newsletter</span><i>✦</i>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 1.0 为什么值得 ============ -->
+  <section class="block" id="why" aria-labelledby="why-title">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">1.0 — Why aii0</p>
+        <h2 id="why-title">很短，很好记，天然带 AI 气质。</h2>
+        <p class="lede">四字符 .com 是稀缺资源，而 “aii0” 这组字符在 AI 时代几乎是为品牌而生的。</p>
+      </div>
+      <div class="trio">
+        <article class="feat reveal">
+          <span class="feat-visual"><span class="keycap-sm">a</span><span class="keycap-sm">i</span><span class="keycap-sm">i</span><span class="keycap-sm hot">0</span></span>
+          <p class="idx">1.1</p>
+          <h3>四个字符，一眼记住</h3>
+          <p>4 字符 .com 全球存量有限且持续减少。短意味着好念、好拼、好在名片和口播里说出来不打折。</p>
+        </article>
+        <article class="feat reveal">
+          <span class="feat-visual"><span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></span>
+          <p class="idx">1.2</p>
+          <h3>读作 “AI-Zero”</h3>
+          <p>前缀 ai、结尾 0，像 “AI 从零开始”。适合 AI 产品、实验室、agent 项目或独立开发者品牌。</p>
+        </article>
+        <article class="feat reveal">
+          <span class="feat-visual"><span class="globe" aria-hidden="true"><em></em></span></span>
+          <p class="idx">1.3</p>
+          <h3>跨语言都好念</h3>
+          <p>纯字母加数字，无生僻拼写。中文读 “爱零”，英文读 “AI-zero”，中日英市场都顺口。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2.0 域名档案 ============ -->
+  <section class="block" id="dossier" aria-labelledby="dossier-title">
+    <div class="wrap dossier-grid">
+      <div class="sec-head reveal" style="margin-bottom:0;">
+        <p class="eyebrow">2.0 — Dossier</p>
+        <h2 id="dossier-title">域名档案</h2>
+        <p class="lede">注册信息可在 WHOIS 公开查询，交易细节支持邮件与托管平台全程留痕。以下评分为卖方自评，仅供参考。</p>
+      </div>
+      <div class="dash">
+        <div class="dash-row reveal">
+          <div class="stat"><div class="label">名称</div><div class="value">aii0</div><span class="delta delta-up">可注册组合 ↓</span></div>
+          <div class="stat"><div class="label">后缀</div><div class="value">.com</div><span class="delta delta-up">通用顶级域</span></div>
+          <div class="stat"><div class="label">长度</div><div class="value">4</div><span class="delta delta-warm">稀缺</span></div>
+        </div>
+        <div class="panel reveal">
+          <div class="panel-head"><span class="t">四字符 .com · 存量趋势（示意）</span><span class="live-pill"><span class="dot dot-g"></span>LIVE</span></div>
+          <div class="chart-body">
+            <svg viewBox="0 0 450 96" role="img" aria-label="四字符 .com 域名存量下降趋势示意图">
+              <line x1="0" y1="10" x2="450" y2="10" stroke="rgba(0,0,0,.05)"/>
+              <line x1="0" y1="38" x2="450" y2="38" stroke="rgba(0,0,0,.05)"/>
+              <line x1="0" y1="66" x2="450" y2="66" stroke="rgba(0,0,0,.05)"/>
+              <line x1="0" y1="94" x2="450" y2="94" stroke="rgba(0,0,0,.05)"/>
+              <path d="M0 26 L60 34 L120 31 L180 44 L240 48 L300 58 L360 60 L420 74 L450 80 L450 96 L0 96 Z" fill="rgba(32,32,32,.05)"/>
+              <path id="chartLine" d="M0 26 L60 34 L120 31 L180 44 L240 48 L300 58 L360 60 L420 74 L450 80" fill="none" stroke="#202020" stroke-width="1.6" stroke-linejoin="round"/>
+              <circle cx="450" cy="80" r="3.2" fill="#202020"/>
+            </svg>
+          </div>
+          <div class="chart-legend">
+            <span><span class="sw" style="background:#202020"></span>未注册存量</span>
+            <span><span class="sw" style="background:rgba(32,32,32,.2)"></span>趋势区间</span>
+          </div>
+          <p class="score-note">* 示意曲线：短 .com 域名被持续注册，可流通组合逐年减少。</p>
+        </div>
+        <div class="panel reveal">
+          <div class="panel-head"><span class="t">品牌适配评分（卖方自评）</span><span class="mono" style="font-size:10px;color:var(--faint)">OUT OF 100</span></div>
+          <div class="score-body">
+            <div class="score"><span class="name">简短度</span><span class="track"><span class="fill" data-w="100"></span></span><span class="val">98</span></div>
+            <div class="score"><span class="name">记忆度</span><span class="track"><span class="fill" data-w="92"></span></span><span class="val">92</span></div>
+            <div class="score"><span class="name">发音度</span><span class="track"><span class="fill" data-w="88"></span></span><span class="val">88</span></div>
+            <div class="score"><span class="name">品牌感</span><span class="track"><span class="fill" data-w="94"></span></span><span class="val">94</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3.0 适合做什么 ============ -->
+  <section class="block" id="uses" aria-labelledby="uses-title">
+    <div class="wrap">
+      <div class="sec-head reveal" style="margin-inline:auto;">
+        <p class="eyebrow">3.0 — Use Cases</p>
+        <h2 id="uses-title">拿到它能做什么？</h2>
+        <p class="lede">从软件产品到工作室，这些方向里说不定就有你的下一个项目。键盘上的词，都是它的去处。</p>
+      </div>
+      <div class="board reveal" id="board" aria-label="可能的使用方向键盘示意图"></div>
+      <p class="board-caption">Hover 按键 · 自动演示中</p>
+    </div>
+  </section>
+
+  <!-- ============ 4.0 交易流程 ============ -->
+  <section class="block" id="deal" aria-labelledby="deal-title">
+    <div class="wrap deal-grid">
+      <div class="sec-head reveal" style="margin-bottom:0;">
+        <p class="eyebrow">4.0 — Deal</p>
+        <h2 id="deal-title">交易流程，四步走完</h2>
+        <p class="lede">全程支持第三方托管。钱先放进托管账户，域名过户确认后再放款，双方都有保障。通常 3–7 天完成。</p>
+      </div>
+      <div class="reveal">
+        <div class="task-card">
+          <div class="task-head"><span class="dot dot-g"></span><span class="t">aii0.com · 交割看板</span><span class="live-pill" style="margin-left:auto"><span class="mono" style="color:var(--faint)">EST. 3–7 DAYS</span></span></div>
+          <div class="task-row">
+            <span class="ti ti-done">✓</span>
+            <span><span class="tt">邮件询价</span><span class="td">说明预算区间与用途</span></span>
+            <span class="badge b-you">你的动作</span>
+          </div>
+          <div class="task-row">
+            <span class="ti ti-now">2</span>
+            <span><span class="tt">报价与确认</span><span class="td">双方确认价格、币种与条款</span></span>
+            <span class="badge b-you">你的动作</span>
+          </div>
+          <div class="task-row">
+            <span class="ti ti-wait">3</span>
+            <span><span class="tt">资金托管</span><span class="td">Escrow / 平台托管，资金先行冻结</span></span>
+            <span class="badge b-escrow">Escrow</span>
+          </div>
+          <div class="task-row">
+            <span class="ti ti-wait">4</span>
+            <span><span class="tt">过户与交付</span><span class="td">注册商转移 + DNS 交接，确认后放款</span></span>
+            <span class="badge b-reg">注册商</span>
+          </div>
+          <div class="task-foot">
+            <div class="bar"><i id="dealBar"></i></div>
+            <p class="cap">进度示意 · Step 2 / 4 · 报价确认中</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5.0 FAQ ============ -->
+  <section class="block" id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="sec-head reveal" style="text-align:center;">
+        <p class="eyebrow" style="justify-content:center;">5.0 — FAQ</p>
+        <h2 id="faq-title">常见问题</h2>
+      </div>
+      <div class="faq-list reveal">
+        <details>
+          <summary>价格怎么谈？有底价吗？<span class="plus" aria-hidden="true"></span></summary>
+          <p>价格面议。邮件里注明预算区间和用途即可，报价合理都会认真回复。诚意的报价会得到优先处理。</p>
+        </details>
+        <details>
+          <summary>支持哪些交易方式？<span class="plus" aria-hidden="true"></span></summary>
+          <p>推荐 Escrow.com 第三方托管，也支持主流域名交易平台。买家承担托管手续费（可协商）。不支持无托管的直接私下转账。</p>
+        </details>
+        <details>
+          <summary>过户需要多久？<span class="plus" aria-hidden="true"></span></summary>
+          <p>托管放款条件达成后，注册商转移一般 1–5 天完成；同注册商内转移（push）可当天完成。DNS 记录交接会提前和你对齐。</p>
+        </details>
+        <details>
+          <summary>可以先租用或分期吗？<span class="plus" aria-hidden="true"></span></summary>
+          <p>长期租赁或分期看具体方案，可以邮件聊。但域名实际过户会在款项结清后进行。</p>
+        </details>
+        <details>
+          <summary>除了邮件，还有别的联系方式吗？<span class="plus" aria-hidden="true"></span></summary>
+          <p>目前以邮件沟通为主：<a href="mailto:email@aii0.com">email@aii0.com</a>。邮件主题写明 aii0.com，一般 24 小时内回复。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6.0 收尾 CTA ============ -->
+  <section class="block" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div class="sec-head reveal" style="margin-inline:auto; margin-bottom:0;">
+        <p class="eyebrow" style="justify-content:center;">6.0 — Contact</p>
+        <h2 id="contact-title">把 aii0.com 带回家</h2>
+        <p class="lede">带上你的项目想法和预算区间，写一封邮件。剩下的交给我们聊。</p>
+      </div>
+      <figure class="art-frame reveal">
+        <img src="park.png" alt="像素画：草地上一台打开的笔记本电脑，面朝大海" loading="lazy" fetchpriority="low">
         <figcaption>aii0.com · 价格面议</figcaption>
       </figure>
-    </section>
-    <section class="info" id="contact" aria-labelledby="contact-title">
-      <p class="kicker">ABOUT THE DOMAIN</p>
-      <h2 id="contact-title">域名信息</h2>
-      <dl><div><dt>名称</dt><dd>aii0</dd></div><div><dt>后缀</dt><dd>.com</dd></div><div><dt>价格</dt><dd>面议</dd></div></dl>
-      <details><summary>如何询价或报价？</summary><p>写信至 <a href="mailto:email@aii0.com">email@aii0.com</a>，注明域名 aii0.com。已有报价时，可以附上金额和币种。</p></details>
-    </section>
-  </main>
-  <footer><span>aii0.com · 域名出售</span><a href="mailto:email@aii0.com">email@aii0.com</a></footer>
-</div>
+      <div class="contact-cta reveal">
+        <a class="btn btn-dark" href="mailto:email@aii0.com?subject=aii0.com%20%E8%AF%A2%E4%BB%B7">邮件询价 <span class="arr">↗</span></a>
+        <button class="btn btn-light" type="button" data-copy="email@aii0.com">
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="4.5" y="4.5" width="8" height="8" rx="1.6" stroke="currentColor" stroke-width="1.3"/><path d="M9.5 4.5V3A1.5 1.5 0 0 0 8 1.5H3A1.5 1.5 0 0 0 1.5 3v5A1.5 1.5 0 0 0 3 9.5h1.5" stroke="currentColor" stroke-width="1.3"/></svg>
+          <span class="copy-label">复制邮箱</span>
+        </button>
+      </div>
+      <p class="contact-note reveal">Escrow Supported · 24h Reply · Since aii0</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>aii0.com · 域名出售</span>
+  <span class="mono">EMAIL@AII0.COM</span>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* --- 顶栏滚动态 --- */
+  var topbar = document.getElementById("topbar");
+  function onScroll() { topbar.classList.toggle("scrolled", window.scrollY > 40); }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  /* --- 复制邮箱 --- */
+  var EMAIL = "email@aii0.com";
+  document.querySelectorAll("[data-copy]").forEach(function (btn) {
+    var label = btn.querySelector(".copy-label");
+    btn.addEventListener("click", function () {
+      function done(ok) {
+        if (label) {
+          var old = label.textContent;
+          label.textContent = ok ? "已复制 ✓" : EMAIL;
+          btn.classList.toggle("copied", ok);
+          setTimeout(function () { label.textContent = old; btn.classList.remove("copied"); }, 1600);
+        }
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(EMAIL).then(function () { done(true); }, function () { fallback(); });
+      } else { fallback(); }
+      function fallback() {
+        var ta = document.createElement("textarea");
+        ta.value = EMAIL; ta.style.position = "fixed"; ta.style.opacity = "0";
+        document.body.appendChild(ta); ta.select();
+        var ok = false; try { ok = document.execCommand("copy"); } catch (e) {}
+        document.body.removeChild(ta); done(ok);
+      }
+    });
+  });
+
+  /* --- 入场动画 --- */
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) {
+        en.target.classList.add("in");
+        en.target.querySelectorAll(".fill").forEach(function (f) { f.style.width = f.dataset.w + "%"; });
+        var bar = en.target.querySelector("#dealBar");
+        if (bar) bar.style.width = "50%";
+        var line = en.target.querySelector("#chartLine");
+        if (line) { line.style.strokeDasharray = 1; line.style.strokeDashoffset = 1; line.getBoundingClientRect(); line.style.transition = "stroke-dashoffset 1.4s ease .2s"; line.style.strokeDashoffset = 0; }
+        io.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.18 });
+  document.querySelectorAll(".reveal").forEach(function (el, i) {
+    el.style.transitionDelay = (i % 3) * 70 + "ms";
+    io.observe(el);
+  });
+
+  /* --- 键盘字母网格 --- */
+  var board = document.getElementById("board");
+  var ROWS = [
+    [["AI"],["LAB"],["APPS"]],
+    [["SAAS"],["DEV"],["IOT"]],
+    [["AGENT"],["CLOUD"],["ROBOT"]],
+    [["BRAND"],["STUDIO"],["DAO"]],
+    [["GROWTH"],["NEWS"],["VOICE"]]
+  ];
+  var words = [];
+  ROWS.forEach(function (row) {
+    var rowEl = document.createElement("div");
+    rowEl.className = "board-row";
+    row.forEach(function (word, wi) {
+      if (wi > 0) {
+        var gap = document.createElement("span");
+        gap.className = "board-gap";
+        rowEl.appendChild(gap);
+      }
+      var group = [];
+      word[0].split("").forEach(function (ch) {
+        var k = document.createElement("span");
+        k.className = "keycap"; k.textContent = ch;
+        rowEl.appendChild(k); group.push(k);
+      });
+      words.push(group);
+    });
+    board.appendChild(rowEl);
+  });
+  function light(group) {
+    group.forEach(function (k, i) { setTimeout(function () { k.classList.add("lit"); }, i * 45); });
+    setTimeout(function () { group.forEach(function (k) { k.classList.remove("lit"); }); }, 1500);
+  }
+  if (!reduceMotion) {
+    var last = -1;
+    setInterval(function () {
+      var i = Math.floor(Math.random() * words.length);
+      if (i === last) i = (i + 1) % words.length;
+      last = i; light(words[i]);
+    }, 1900);
+  }
+})();
+</script>
 </body>
 </html>
