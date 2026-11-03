@@ -91,12 +91,17 @@
     box-shadow: 0 0 0 1px var(--line), 0 8px 24px rgba(0,0,0,.04);
   }
   .wordmark { font: 700 17px/1 var(--mono); letter-spacing: -.04em; text-decoration: none; }
-  nav { display: flex; gap: 26px; }
+  nav { display: flex; gap: 8px; }
   nav a {
-    font-size: 13.5px; font-weight: 500; letter-spacing: .1px; text-decoration: none; opacity: .8;
-    transition: opacity .15s ease;
+    padding: 7px 12px; border: 1px solid rgba(255,255,255,.48); border-radius: 999px;
+    background: rgba(251,251,248,.82); color: var(--ink);
+    -webkit-backdrop-filter: blur(12px) saturate(1.2);
+    backdrop-filter: blur(12px) saturate(1.2);
+    box-shadow: 0 2px 8px rgba(0,0,0,.10);
+    font-size: 13.5px; font-weight: 500; text-decoration: none; white-space: nowrap;
+    transition: background .15s ease;
   }
-  nav a:hover { opacity: 1; }
+  nav a:hover, nav a:focus-visible { background: rgba(251,251,248,.96); }
   header .btn { height: 34px; font-size: 13.5px; padding: 0 13px; }
 
   /* ---------- Hero ---------- */
@@ -274,8 +279,7 @@
     background: var(--ink); color: #fff; transform: translateY(2px);
     box-shadow: 0 0 0 1px rgba(0,0,0,.2), inset 0 -1px 0 rgba(0,0,0,.1);
   }
-  .board-gap { width: 14px; }
-  .board-caption { margin-top: 26px; font: 500 11px/1.8 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
+  .board-caption { min-height: 1.6em; margin-top: 22px; font: 600 24px/1.6 var(--mono); color: var(--ink); }
 
   /* ---------- 4.0 交易流程 ---------- */
   .deal-grid { display: grid; grid-template-columns: 5fr 6fr; gap: clamp(28px, 4vw, 56px); align-items: center; }
@@ -366,7 +370,6 @@
     .dash-row { grid-template-columns: 1fr 1fr; }
     .stat:last-child { display: none; }
     .keycap { width: 32px; height: 32px; font-size: 11px; }
-    .board-gap { width: 0; }
     .hero-inner { padding-top: 120px; }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -522,10 +525,12 @@
       <div class="sec-head reveal" style="margin-inline:auto;">
         <p class="eyebrow">3.0 — Use Cases</p>
         <h2 id="uses-title">拿到它能做什么？</h2>
-        <p class="lede">从软件产品到工作室，这些方向里说不定就有你的下一个项目。键盘上的词，都是它的去处。</p>
+        <p class="lede">用不同的子域名，为开发项目、个人作品和更多创意各留一个入口。</p>
       </div>
-      <div class="board reveal" id="board" aria-label="可能的使用方向键盘示意图"></div>
-      <p class="board-caption">Hover 按键 · 自动演示中</p>
+      <div class="board reveal" id="board">
+        <div class="board-row" aria-hidden="true"></div>
+        <p class="board-caption">dev.aii0.com</p>
+      </div>
     </div>
   </section>
 
@@ -688,6 +693,7 @@
     entries.forEach(function (en) {
       if (en.isIntersecting) {
         en.target.classList.add("in");
+        if (en.target === board && !reduceMotion) typeDomain();
         var line = en.target.querySelector("#chartLine");
         if (line) { line.style.strokeDasharray = 1; line.style.strokeDashoffset = 1; line.getBoundingClientRect(); line.style.transition = "stroke-dashoffset 1.4s ease .2s"; line.style.strokeDashoffset = 0; }
         io.unobserve(en.target);
@@ -699,47 +705,60 @@
     io.observe(el);
   });
 
-  /* --- 键盘字母网格 --- */
+  /* --- 轮流演示子域名 --- */
   var board = document.getElementById("board");
-  var ROWS = [
-    [["AI"],["LAB"],["APPS"]],
-    [["SAAS"],["DEV"],["IOT"]],
-    [["AGENT"],["CLOUD"],["ROBOT"]],
-    [["BRAND"],["STUDIO"],["DAO"]],
-    [["GROWTH"],["NEWS"],["VOICE"]]
+  var output = board.querySelector(".board-caption");
+  var keyRow = board.querySelector(".board-row");
+  var domains = [
+    "dev.aii0.com", "love.aii0.com", "app.aii0.com", "api.aii0.com",
+    "docs.aii0.com", "lab.aii0.com", "blog.aii0.com", "studio.aii0.com",
+    "shop.aii0.com", "status.aii0.com"
   ];
-  var words = [];
-  ROWS.forEach(function (row) {
-    var rowEl = document.createElement("div");
-    rowEl.className = "board-row";
-    row.forEach(function (word, wi) {
-      if (wi > 0) {
-        var gap = document.createElement("span");
-        gap.className = "board-gap";
-        rowEl.appendChild(gap);
-      }
-      var group = [];
-      word[0].split("").forEach(function (ch) {
-        var k = document.createElement("span");
-        k.className = "keycap"; k.textContent = ch;
-        rowEl.appendChild(k); group.push(k);
-      });
-      words.push(group);
+  var domainIndex = 0;
+  var keys = [];
+
+  function showKeys(domain) {
+    keyRow.replaceChildren();
+    keys = Array.from(domain, function (character) {
+      var key = document.createElement("span");
+      key.className = "keycap";
+      key.textContent = character;
+      keyRow.appendChild(key);
+      return key;
     });
-    board.appendChild(rowEl);
-  });
-  function light(group) {
-    group.forEach(function (k, i) { setTimeout(function () { k.classList.add("lit"); }, i * 45); });
-    setTimeout(function () { group.forEach(function (k) { k.classList.remove("lit"); }); }, 1500);
   }
-  if (!reduceMotion) {
-    var last = -1;
-    setInterval(function () {
-      var i = Math.floor(Math.random() * words.length);
-      if (i === last) i = (i + 1) % words.length;
-      last = i; light(words[i]);
-    }, 1900);
+
+  function typeDomain() {
+    var domain = domains[domainIndex];
+    showKeys(domain);
+    output.textContent = "";
+    var length = 0;
+
+    function typeNext() {
+      if (length > 0) keys[length - 1].classList.remove("lit");
+      if (length === domain.length) {
+        setTimeout(eraseNext, 1400);
+        return;
+      }
+      keys[length].classList.add("lit");
+      output.textContent = domain.slice(0, ++length);
+      setTimeout(typeNext, 120);
+    }
+
+    function eraseNext() {
+      output.textContent = domain.slice(0, --length);
+      if (length > 0) {
+        setTimeout(eraseNext, 65);
+        return;
+      }
+      domainIndex = (domainIndex + 1) % domains.length;
+      setTimeout(typeDomain, 300);
+    }
+
+    typeNext();
   }
+
+  showKeys(domains[0]);
 })();
 </script>
 </body>
