@@ -1,37 +1,47 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="aii0.com 四字符 .com 域名出售，AI 原生品牌气质，支持 Escrow 安全托管交易，欢迎来信询价。">
-<meta property="og:title" content="aii0.com · 四字符域名出售">
-<meta property="og:description" content="一个四字符 .com 域名，AI 原生气质，正在寻找下一位主人。">
+<meta name="description" data-i18n-content="metaDescription" content="aii0.com is a four-character .com domain for sale, with an AI-native name and secure escrow. Email to inquire.">
+<meta property="og:title" data-i18n-content="ogTitle" content="aii0.com · Four-Character Domain for Sale">
+<meta property="og:description" data-i18n-content="ogDescription" content="An AI-native, four-character .com domain looking for its next owner.">
 <meta property="og:type" content="website">
 <link rel="icon" href="/favicon.svg?v=2" sizes="any" type="image/svg+xml">
 <link rel="icon" href="/favicon.png?v=2" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<title>aii0.com · 域名出售</title>
+<title data-i18n="siteTitle">aii0.com · Domain for Sale</title>
 <style>
   * { box-sizing: border-box; }
   :root {
-    --surface: #F5F5F2;
-    --surface-deep: #F0F0EC;
-    --raised: #FBFBF8;
-    --ink: #202020;
-    --muted: rgba(38,35,35,.56);
-    --faint: rgba(38,35,35,.34);
-    --line: rgba(0,0,0,.08);
-    --line2: #E7E7E3;
+    --surface: #eef2f9;
+    --ink: #1d2534;
+    --muted: #475569;
+    --faint: #586579;
+    --line: rgba(34,53,84,.16);
+    --line2: rgba(34,53,84,.12);
     --green: #34A853;
     --amber: #F59E0B;
     --blue: #46ABFD;
     --orange: #FF672F;
-    --card-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 0 20px rgba(0,0,0,.03),
-                   0 36px 28px rgba(0,0,0,.02), 0 25px 25px rgba(0,0,0,.02),
-                   inset 0 0 0 1px #fff;
+    --glass: radial-gradient(ellipse at 12% 0%, rgba(255,255,255,.66), transparent 64%),
+             linear-gradient(155deg, rgba(247,251,255,.35), rgba(227,241,255,.12) 62%, rgba(255,255,255,.35));
+    --glass-bright: radial-gradient(ellipse at 16% 0%, rgba(255,255,255,.8), transparent 72%),
+                    linear-gradient(165deg, rgba(246,251,255,.75), rgba(218,236,255,.61) 65%, rgba(252,254,255,.76));
+    --glass-filter: blur(5px) saturate(1.45);
+    --glass-shadow: inset 0 1.5px 1px rgba(255,255,255,.98), inset 1px 0 1px rgba(255,255,255,.58),
+                    inset 0 -2px 4px rgba(55,89,131,.18), inset 0 -1px 0 rgba(255,255,255,.72),
+                    0 0 0 1px rgba(60,90,135,.16), 0 10px 26px rgba(38,63,102,.15);
     --mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", "IBM Plex Mono", Menlo, Consolas, monospace;
     --sans: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
-    --header-h: 64px;
+    --header-h: 68px;
+    --header-control-h: 40px;
+    --content-width: 1240px;
+    --gutter: clamp(20px, 4vw, 32px);
+    --section-space: clamp(56px, 7vw, 104px);
+    --group-space: clamp(28px, 4vw, 48px);
+    --card-gap: clamp(12px, 1.5vw, 20px);
+    --card-inset: clamp(16px, 2vw, 24px);
   }
   html { scroll-behavior: smooth; }
   body {
@@ -43,66 +53,98 @@
   ::selection { background: rgba(255,103,47,.22); }
   :focus-visible { outline: 3px solid #2377C5; outline-offset: 3px; border-radius: 4px; }
 
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  .wrap { max-width: var(--content-width); margin-inline: auto; padding-inline: var(--gutter); }
 
   /* ---------- 字体体系 ---------- */
   .eyebrow {
     font: 600 11px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase;
-    color: var(--muted); display: inline-flex; align-items: center; gap: 10px;
+    color: var(--muted); display: inline-flex; align-items: center; gap: 10px; margin: 0;
   }
   .eyebrow::after { content: ""; width: 34px; height: 1px; background: var(--line); }
   h1, h2 { font-weight: 450; letter-spacing: -.025em; margin: 0; }
   h2 { font-size: clamp(28px, 4.2vw, 40px); line-height: 115%; }
-  .lede { font-size: 15.5px; font-weight: 450; letter-spacing: .15px; line-height: 150%; color: var(--muted); max-width: 460px; margin: 14px 0 0; }
+  .lede { font-size: 15.5px; font-weight: 450; letter-spacing: .15px; line-height: 150%; color: var(--muted); max-width: 460px; margin: 12px 0 0; }
   .mono { font-family: var(--mono); }
+
+  /* 玻璃中央保持通透，边缘用双层高光和暗边模拟透镜厚度。 */
+  .wordmark, nav a, #siteLanguage, .btn-light, .notif, .art-frame figcaption {
+    background: var(--glass-bright);
+    -webkit-backdrop-filter: var(--glass-filter);
+    backdrop-filter: var(--glass-filter);
+    box-shadow: var(--glass-shadow);
+  }
+  .feat, .stat, .panel, .board, .task-card, details {
+    background: var(--glass);
+    -webkit-backdrop-filter: var(--glass-filter);
+    backdrop-filter: var(--glass-filter);
+    box-shadow: var(--glass-shadow);
+    border-radius: 26px;
+  }
+
+  .wordmark, nav a, #siteLanguage, .btn, .task-row, summary {
+    --glint: radial-gradient(ellipse at var(--light-x, 25%) var(--light-y, 0%), rgba(255,255,255,.56), transparent 72%);
+    transition: scale .24s cubic-bezier(.2,.75,.35,1.25), box-shadow .2s ease;
+  }
+  .wordmark:hover, nav a:hover, #siteLanguage:hover, .btn-light:hover {
+    background: var(--glint), var(--glass-bright);
+  }
+  .wordmark:active, nav a:active, .btn:active { scale: .96; }
+  .task-row:hover, summary:hover { background-image: var(--glint); }
+  summary { border-radius: inherit; }
 
   /* ---------- 按钮 ---------- */
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 7px;
-    height: 41px; padding: 0 16px; border-radius: 8px; border: 0;
+    height: 41px; padding: 0 16px; border-radius: 999px; border: 0;
     font: 500 15px/1 var(--sans); letter-spacing: .15px;
     text-decoration: none; cursor: pointer; white-space: nowrap;
-    transition: background .18s ease, transform .18s ease, box-shadow .18s ease;
   }
-  .btn-dark { background: var(--ink); color: #fff; }
-  .btn-dark:hover { background: #3a3a38; }
-  .btn-light { background: #fff; color: var(--ink); box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.06); }
-  .btn-light:hover { background: #f2f2ee; }
+  .btn-dark {
+    background: linear-gradient(155deg, #416691, #263e63);
+    color: #fff; box-shadow: inset 0 1px 0 rgba(255,255,255,.36), 0 7px 18px rgba(35,62,101,.24);
+  }
+  .btn-dark:hover { background: linear-gradient(155deg, #4a75a4, #2a486f); }
+  .btn-light { color: var(--ink); }
   .btn-glass {
-    background: rgba(255,255,255,.24); color: #fff;
-    backdrop-filter: blur(16px) saturate(1.2); -webkit-backdrop-filter: blur(16px) saturate(1.2);
+    background: rgba(21,38,60,.48); color: #fff;
+    backdrop-filter: var(--glass-filter); -webkit-backdrop-filter: var(--glass-filter);
     box-shadow: inset 0 0 0 1px rgba(255,255,255,.3), 0 8px 24px rgba(0,0,0,.18);
   }
-  .btn-glass:hover { background: rgba(255,255,255,.34); }
-  .btn-glass.copied, .btn-light.copied { color: var(--green); }
+  .btn-glass:hover { background: rgba(21,38,60,.64); }
+  .btn-glass.copied { color: #b5f5cb; }
+  .btn-light.copied { color: #20653a; }
   .btn-light.copied { box-shadow: 0 0 0 1px rgba(52,168,83,.4); }
   .btn .arr { font-family: var(--mono); font-size: 13px; opacity: .75; }
 
   /* ---------- 顶部导航 ---------- */
   header {
     position: fixed; inset: 0 0 auto; z-index: 50; height: var(--header-h);
-    display: flex; align-items: center; justify-content: space-between; gap: 16px;
-    padding: 0 clamp(16px, 4vw, 44px);
     transition: background .25s ease, box-shadow .25s ease;
   }
+  .header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
   header.scrolled {
-    background: rgba(251,251,248,.82);
-    backdrop-filter: blur(14px) saturate(1.2); -webkit-backdrop-filter: blur(14px) saturate(1.2);
+    background: rgba(238,246,255,.78);
+    backdrop-filter: var(--glass-filter); -webkit-backdrop-filter: var(--glass-filter);
     box-shadow: 0 0 0 1px var(--line), 0 8px 24px rgba(0,0,0,.04);
   }
-  .wordmark { font: 700 17px/1 var(--mono); letter-spacing: -.04em; text-decoration: none; }
+  .wordmark {
+    padding-inline: 12px; border-radius: 999px;
+    font: 700 17px/1 var(--mono); letter-spacing: -.04em; text-decoration: none;
+  }
   nav { display: flex; gap: 8px; }
   nav a {
-    padding: 7px 12px; border: 1px solid rgba(255,255,255,.48); border-radius: 999px;
-    background: rgba(251,251,248,.82); color: var(--ink);
-    -webkit-backdrop-filter: blur(12px) saturate(1.2);
-    backdrop-filter: blur(12px) saturate(1.2);
-    box-shadow: 0 2px 8px rgba(0,0,0,.10);
+    padding-inline: 12px; border-radius: 999px;
     font-size: 13.5px; font-weight: 500; text-decoration: none; white-space: nowrap;
-    transition: background .15s ease;
   }
-  nav a:hover, nav a:focus-visible { background: rgba(251,251,248,.96); }
-  header .btn { height: 34px; font-size: 13.5px; padding: 0 13px; }
+  .header-actions { display: flex; align-items: center; gap: 8px; }
+  .wordmark, nav a { display: inline-flex; align-items: center; justify-content: center; }
+  .wordmark, nav a, #siteLanguage, header .btn { height: var(--header-control-h); }
+  #siteLanguage {
+    max-width: 112px; padding-inline: 10px;
+    border: 0; border-radius: 999px;
+    color: var(--ink); font: inherit; font-size: 13px; cursor: pointer;
+  }
+  header .btn { font-size: 13.5px; padding-inline: 12px; }
 
   /* ---------- Hero ---------- */
   .hero {
@@ -122,7 +164,8 @@
   }
   .hero-inner {
     position: relative; z-index: 2; width: 100%;
-    max-width: 1440px; margin: 0 auto; padding: 140px clamp(20px, 5vw, 76px) 84px;
+    max-width: var(--content-width); margin-inline: auto;
+    padding: 140px var(--gutter) 84px;
   }
   .hero .eyebrow { color: rgba(255,255,255,.75); }
   .hero .eyebrow::after { background: rgba(255,255,255,.28); }
@@ -133,32 +176,32 @@
     -webkit-background-clip: text; background-clip: text; color: transparent;
     filter: drop-shadow(0 2px 8px rgba(0,0,0,.28));
   }
+  [dir="rtl"] .hero h1 { text-align: right; }
   .hero .lede {
     color: rgba(255,255,255,.82); max-width: 480px; margin-top: 18px;
     text-shadow: 0 1px 2px rgba(0,0,0,.2);
   }
-  .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 30px; }
+  .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 24px; }
   .hero-meta {
-    margin-top: 26px; font: 500 11.5px/1.8 var(--mono); letter-spacing: .12em;
+    margin: 20px 0 0; font: 500 11.5px/1.8 var(--mono); letter-spacing: .12em;
     text-transform: uppercase; color: rgba(255,255,255,.6);
   }
   .hero-meta b { color: rgba(255,255,255,.92); font-weight: 600; }
 
   /* 玻璃浮动通知卡（cofounder hero 语法） */
   .notif-stack {
-    position: absolute; z-index: 2; right: clamp(24px, 7vw, 120px); top: 17%;
+    position: absolute; z-index: 2;
+    inset-inline-end: max(var(--gutter), calc((100% - var(--content-width)) / 2 + var(--gutter)));
+    top: 17%;
     width: 268px; display: flex; flex-direction: column; gap: 14px;
     transform: perspective(320px) rotateX(-2deg) rotateY(-12deg) rotateZ(2deg);
     pointer-events: none;
   }
   .notif {
-    background: rgba(250,250,248,.78);
-    backdrop-filter: blur(16px) saturate(1.2); -webkit-backdrop-filter: blur(16px) saturate(1.2);
-    border-radius: 12px; padding: 13px 15px; color: var(--ink);
-    box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 24px 32px rgba(0,0,0,.22), inset 0 0 0 1px #fff;
+    border-radius: 22px; padding: 13px 15px; color: var(--ink);
     animation: floaty 6s ease-in-out infinite;
   }
-  .notif:nth-child(2) { animation-delay: -2s; margin-left: 22px; }
+  .notif:nth-child(2) { animation-delay: -2s; margin-inline-start: 22px; }
   .notif:nth-child(3) { animation-delay: -4s; }
   .notif-head { display: flex; align-items: center; gap: 8px; }
   .dot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
@@ -167,7 +210,7 @@
   .dot-b { background: var(--blue); box-shadow: 0 0 0 3px rgba(70,171,253,.18); }
   .notif-title { font-size: 12.5px; font-weight: 600; letter-spacing: .1px; }
   .notif-sub { margin-top: 3px; font-size: 11px; color: var(--muted); }
-  .notif-time { font: 500 9.5px/1 var(--mono); color: var(--faint); margin-left: auto; letter-spacing: .05em; }
+  .notif-time { font: 500 9.5px/1 var(--mono); color: var(--faint); margin-inline-start: auto; letter-spacing: .05em; }
   @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
   .hero-cue {
     position: absolute; z-index: 2; left: 50%; bottom: 22px; transform: translateX(-50%);
@@ -177,7 +220,7 @@
   @keyframes cue { 0%,100% { transform: translate(-50%, 0); opacity: .55; } 50% { transform: translate(-50%, 6px); opacity: .95; } }
 
   /* ---------- 场景跑马灯 ---------- */
-  .ticker { border-block: 1px solid var(--line2); background: var(--raised); overflow: hidden; }
+  .ticker { border-block: 1px solid var(--line2); background: var(--glass-bright); overflow: hidden; }
   .ticker-track { display: flex; width: max-content; animation: tick 36s linear infinite; }
   .ticker:hover .ticker-track { animation-play-state: paused; }
   .ticker-seq { display: flex; align-items: center; padding: 15px 0; }
@@ -189,24 +232,36 @@
   @keyframes tick { to { transform: translateX(-50%); } }
 
   /* ---------- 通用 Section ---------- */
-  section.block { padding: clamp(72px, 10vw, 120px) 0; scroll-margin-top: 76px; }
+  section.block {
+    padding-block: var(--section-space); scroll-margin-top: calc(var(--header-h) + 8px);
+    background:
+      radial-gradient(ellipse at 22% 58%, var(--wash-start), transparent 58%),
+      radial-gradient(ellipse at 87% 82%, var(--wash-end), transparent 56%),
+      var(--surface);
+    --wash-start: #cfe5fa;
+    --wash-end: #e2d9fa;
+  }
+  #dossier, #faq { --wash-start: #e1daf9; --wash-end: #cbe7f3; }
+  #uses, #contact { --wash-start: #cde8f6; --wash-end: #d6defa; }
   section.block + section.block { border-top: 1px solid var(--line2); }
-  .sec-head { margin-bottom: clamp(36px, 5vw, 56px); }
-  .sec-head h2 { margin-top: 16px; max-width: 640px; }
+  .sec-head { margin-bottom: var(--group-space); }
+  .sec-head h2 { margin-top: 12px; max-width: 640px; }
+  :is(#uses, #faq, #contact) .sec-head { text-align: center; }
+  :is(#uses, #faq, #contact) .sec-head :is(h2, .lede) { margin-inline: auto; }
+  :is(.dossier-grid, .deal-grid) .sec-head { margin-bottom: 0; }
 
   /* ---------- 1.0 为什么值得 ---------- */
-  .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .trio { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--card-gap); }
   .feat {
-    background: var(--raised); border-radius: 12px; padding: 24px 22px 26px;
-    box-shadow: var(--card-shadow); position: relative; overflow: hidden;
+    padding: var(--card-inset); position: relative; overflow: hidden;
   }
   .feat .idx { font: 600 11px/1 var(--mono); letter-spacing: .12em; color: var(--faint); }
   .feat h3 { margin: 42px 0 8px; font-size: 18px; font-weight: 550; letter-spacing: -.01em; }
   .feat p { margin: 0; font-size: 13.5px; line-height: 160%; color: var(--muted); }
-  .feat-visual { position: absolute; top: 20px; right: 20px; }
+  .feat-visual { position: absolute; inset-block-start: var(--card-inset); inset-inline-end: var(--card-inset); }
   .keycap-sm {
     display: inline-flex; align-items: center; justify-content: center;
-    width: 30px; height: 30px; border-radius: 7px; background: #fff;
+    width: 30px; height: 30px; border-radius: 7px; background: var(--glass-bright);
     box-shadow: 0 0 0 1px var(--line), 0 1px 0 rgba(0,0,0,.06), inset 0 -2px 0 rgba(0,0,0,.04);
     font: 600 12px/1 var(--mono);
   }
@@ -227,47 +282,51 @@
   .globe em { position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: rgba(32,32,32,.35); }
 
   /* ---------- 2.0 域名档案 ---------- */
-  #dossier { background: var(--surface-deep); }
-  .dossier-grid { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(28px, 4vw, 56px); align-items: start; }
-  .dash { display: flex; flex-direction: column; gap: 16px; }
-  .dash-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .dossier-grid, .deal-grid {
+    display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: var(--group-space); align-items: start;
+  }
+  .dash { display: flex; flex-direction: column; gap: var(--card-gap); }
+  .dash-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--card-gap); }
   .stat {
-    background: var(--raised); border-radius: 12px; padding: 14px 16px; box-shadow: var(--card-shadow);
+    padding: 16px var(--card-inset);
   }
   .stat .label { font-size: 10.5px; color: var(--muted); }
   .stat .value { margin-top: 6px; font: 500 20px/1 var(--mono); letter-spacing: -.03em; }
   .stat .delta { display: inline-block; margin-top: 9px; font: 600 10px/1 var(--mono); padding: 3px 6px; border-radius: 5px; }
   .delta-up { color: #1a7f3c; background: rgba(52,168,83,.12); }
   .delta-warm { color: #b4530a; background: rgba(245,158,11,.14); }
-  .panel {
-    background: var(--raised); border-radius: 12px; box-shadow: var(--card-shadow); overflow: hidden;
-  }
+  .panel { overflow: hidden; }
   .panel-head {
     display: flex; align-items: center; justify-content: space-between;
-    padding: 12px 16px; border-bottom: .5px solid var(--line2);
+    gap: 12px; padding: 12px var(--card-inset); border-bottom: .5px solid var(--line2);
   }
   .panel-head .t { font-size: 12px; font-weight: 600; letter-spacing: .05em; }
+  .panel-head .score-max { font-size: 10px; color: var(--faint); }
   .live-pill { display: inline-flex; align-items: center; gap: 6px; font: 600 9.5px/1 var(--mono); letter-spacing: .1em; color: var(--muted); }
-  .chart-body { padding: 16px 16px 12px; }
+  .chart-body { padding: 16px var(--card-inset) 12px; }
   .chart-body svg { display: block; width: 100%; height: auto; }
-  .chart-legend { display: flex; gap: 14px; padding: 0 16px 14px; }
+  .chart-legend { display: flex; flex-wrap: wrap; gap: 8px 12px; padding: 0 var(--card-inset) 12px; }
   .chart-legend span { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; color: var(--muted); }
   .chart-legend .sw { width: 6px; height: 6px; border-radius: 50%; }
-  .score-body { padding: 16px; display: grid; gap: 13px; }
-  .score { display: grid; grid-template-columns: 74px 1fr 34px; align-items: center; gap: 12px; }
+  .score-body { padding: 16px var(--card-inset); display: grid; gap: 12px; }
+  .score { display: grid; grid-template-columns: minmax(74px, 1.1fr) minmax(0, 3fr) 34px; align-items: center; gap: 12px; }
   .score .name { font-size: 12px; color: var(--muted); }
   .score .track { height: 6px; border-radius: 3px; background: rgba(0,0,0,.06); overflow: hidden; }
-  .score .fill { display: block; height: 100%; border-radius: 3px; background: linear-gradient(90deg, #4b4b48, var(--ink)); width: 0; transition: width 1s cubic-bezier(.2,.7,.2,1); }
-  .score .val { font: 600 11px/1 var(--mono); text-align: right; color: var(--muted); }
-  .score-note { margin: 0; padding: 10px 16px 14px; font: 400 10.5px/1.5 var(--mono); color: var(--faint); border-top: .5px solid var(--line2); }
+  .score .fill { display: block; height: 100%; border-radius: 3px; background: linear-gradient(90deg, #7e9fce, #365784); width: 0; transition: width 1s cubic-bezier(.2,.7,.2,1); }
+  .score .val { font: 600 11px/1 var(--mono); text-align: end; color: var(--muted); }
+  .score-note { margin: 0; padding: 12px var(--card-inset); font: 400 10.5px/1.5 var(--mono); color: var(--faint); border-top: .5px solid var(--line2); }
 
   /* ---------- 3.0 字母键盘 ---------- */
   #uses { text-align: center; }
   #uses .lede { margin-inline: auto; }
-  .board { margin: 44px auto 0; display: flex; flex-direction: column; gap: 9px; align-items: center; }
+  .board {
+    width: fit-content; max-width: 100%; margin-inline: auto; padding: var(--card-inset);
+    display: flex; flex-direction: column; gap: 9px; align-items: center;
+  }
   .board-row { display: flex; gap: 9px; flex-wrap: wrap; justify-content: center; }
   .keycap {
-    width: 38px; height: 38px; border-radius: 9px; background: var(--raised);
+    width: 38px; height: 38px; border-radius: 11px; background: var(--glass-bright);
     display: inline-flex; align-items: center; justify-content: center;
     font: 600 13px/1 var(--mono); color: var(--muted);
     box-shadow: 0 0 0 1px var(--line), 0 1.5px 0 rgba(0,0,0,.07), inset 0 -2.5px 0 rgba(0,0,0,.04);
@@ -279,22 +338,23 @@
     background: var(--ink); color: #fff; transform: translateY(2px);
     box-shadow: 0 0 0 1px rgba(0,0,0,.2), inset 0 -1px 0 rgba(0,0,0,.1);
   }
-  .board-caption { min-height: 1.6em; margin-top: 22px; font: 600 24px/1.6 var(--mono); color: var(--ink); }
+  .board-row, .board-caption, .ticker-track { direction: ltr; }
+  .board-caption { min-height: 1.6em; max-width: 100%; margin: 12px 0 0; font: 600 clamp(17px, 5vw, 24px)/1.6 var(--mono); color: var(--ink); overflow-wrap: anywhere; }
 
   /* ---------- 4.0 交易流程 ---------- */
-  .deal-grid { display: grid; grid-template-columns: 5fr 6fr; gap: clamp(28px, 4vw, 56px); align-items: center; }
   .steps { display: grid; gap: 0; counter-reset: step; }
   .step { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line2); }
   .step:last-child { border-bottom: 0; }
   .step .n { font: 600 11px/1.9 var(--mono); color: var(--faint); }
   .step h4 { margin: 0; font-size: 15px; font-weight: 550; letter-spacing: -.005em; }
   .step p { margin: 4px 0 0; font-size: 13px; line-height: 155%; color: var(--muted); }
-  .task-card { background: var(--raised); border-radius: 12px; box-shadow: var(--card-shadow); overflow: hidden; }
-  .task-head { display: flex; align-items: center; gap: 9px; padding: 13px 16px; border-bottom: .5px solid var(--line2); }
+  .task-card { overflow: hidden; }
+  .task-head { display: flex; align-items: center; gap: 8px; padding: 12px var(--card-inset); border-bottom: .5px solid var(--line2); }
   .task-head .t { font-size: 12.5px; font-weight: 600; }
-  .task-row { display: flex; align-items: center; gap: 11px; padding: 13px 16px; border-bottom: .5px solid var(--line2); }
-  .task-row { width: 100%; border: 0; border-bottom: .5px solid var(--line2); background: transparent; font: inherit; color: inherit; text-align: left; cursor: pointer; }
-  .task-row:hover, .task-row[aria-pressed="true"] { background: var(--surface); }
+  .task-row { display: flex; align-items: center; gap: 12px; padding: 12px var(--card-inset); }
+  .task-row { width: 100%; border: 0; border-bottom: .5px solid var(--line2); background: transparent; font: inherit; color: inherit; text-align: start; cursor: pointer; }
+  .task-row:hover { background-color: rgba(255,255,255,.4); }
+  .task-row[aria-pressed="true"] { background-color: rgba(196,221,253,.54); }
   .task-row:focus-visible { outline: 2px solid currentColor; outline-offset: -3px; }
   .task-row .ti {
     width: 20px; height: 20px; border-radius: 50%; flex: none;
@@ -304,22 +364,21 @@
   .ti-done { background: var(--green); } .ti-now { background: var(--amber); } .ti-wait { background: rgba(32,32,32,.16); color: var(--muted) !important; }
   .task-row .tt { font-size: 13px; font-weight: 500; }
   .task-row .td { display: block; font-size: 11px; color: var(--faint); margin-top: 2px; }
-  .badge { margin-left: auto; font: 600 9.5px/1 var(--mono); letter-spacing: .08em; padding: 4px 8px; border-radius: 5px; text-transform: uppercase; flex: none; }
+  .badge { margin-inline-start: auto; font: 600 9.5px/1 var(--mono); letter-spacing: .08em; padding: 4px 8px; border-radius: 5px; text-transform: uppercase; flex: none; }
   .b-you { color: #b4530a; background: rgba(245,158,11,.13); }
   .b-escrow { color: #1663b8; background: rgba(70,171,253,.14); }
   .b-reg { color: #1a7f3c; background: rgba(52,168,83,.13); }
-  .task-foot { padding: 12px 16px; background: var(--surface); border-top: .5px solid var(--line2); }
+  .task-foot { padding: 12px var(--card-inset); background: rgba(255,255,255,.36); border-top: .5px solid var(--line2); }
   .task-foot .bar { height: 5px; border-radius: 3px; background: rgba(0,0,0,.07); overflow: hidden; }
   .task-foot .bar i { display: block; height: 100%; width: 0; background: var(--ink); border-radius: 3px; transition: width 1.2s cubic-bezier(.2,.7,.2,1) .2s; }
-  .task-foot .cap { margin-top: 9px; font: 400 10.5px/1.5 var(--mono); color: var(--faint); }
+  .task-foot .cap { margin: 8px 0 0; font: 400 10.5px/1.5 var(--mono); color: var(--faint); }
 
   /* ---------- 5.0 FAQ ---------- */
   #faq .faq-list { max-width: 720px; margin: 0 auto; }
-  details { border-bottom: 1px solid var(--line2); }
-  details:first-of-type { border-top: 1px solid var(--line2); }
+  details + details { margin-top: 12px; }
   summary {
     cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between;
-    gap: 16px; padding: 19px 2px; font-size: 15.5px; font-weight: 500; letter-spacing: -.005em;
+    gap: 16px; padding: 16px var(--card-inset); font-size: 15.5px; font-weight: 500; letter-spacing: -.005em;
   }
   summary::-webkit-details-marker { display: none; }
   summary .plus { position: relative; width: 14px; height: 14px; flex: none; opacity: .5; }
@@ -327,32 +386,32 @@
   summary .plus::before { left: 0; right: 0; top: 6.5px; height: 1.5px; }
   summary .plus::after { top: 0; bottom: 0; left: 6.5px; width: 1.5px; }
   details[open] summary .plus::after { transform: scaleY(0); }
-  details p { margin: 0; padding: 0 26px 20px 2px; font-size: 14px; line-height: 170%; color: var(--muted); }
+  details p { margin: 0; padding: 0 var(--card-inset) 16px; font-size: 14px; line-height: 170%; color: var(--muted); }
   details a { text-decoration-color: var(--faint); }
 
   /* ---------- 6.0 收尾 CTA ---------- */
-  #contact { background: var(--surface-deep); text-align: center; }
+  #contact { text-align: center; }
   #contact .lede { margin-inline: auto; }
   .art-frame {
-    position: relative; max-width: 860px; margin: 48px auto 0; border-radius: 14px; overflow: hidden;
-    box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 40px 60px rgba(0,0,0,.1);
+    position: relative; max-width: 860px; margin: 0 auto; padding: 8px;
+    border-radius: 24px; background: var(--glass); box-shadow: var(--glass-shadow);
   }
-  .art-frame img { display: block; width: 100%; aspect-ratio: 16/8.6; object-fit: cover; }
+  .art-frame img { display: block; width: 100%; aspect-ratio: 16/8.6; object-fit: cover; border-radius: 18px; }
   .art-frame figcaption {
-    position: absolute; right: 5%; bottom: 9%;
-    padding: 9px 13px; border-radius: 8px;
-    background: rgba(250,250,248,.85); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-    box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 12px 24px rgba(0,0,0,.18);
+    position: absolute; inset-inline-end: 5%; bottom: 9%;
+    padding: 9px 13px; border-radius: 999px;
     font: 500 11px/1 var(--mono); letter-spacing: .06em;
   }
-  .contact-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 40px; }
+  .contact-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: var(--group-space); }
   .contact-note { margin-top: 22px; font: 500 11px/1.9 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--faint); }
 
   footer {
-    border-top: 1px solid var(--line2); background: var(--raised);
-    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
-    padding: 22px clamp(20px, 5vw, 76px);
+    border-top: 1px solid var(--line2); background: var(--glass-bright);
     font-size: 12.5px; color: var(--muted);
+  }
+  .footer-inner {
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 16px;
+    padding-block: 20px;
   }
   footer .mono { font-size: 11px; letter-spacing: .08em; }
 
@@ -360,13 +419,48 @@
   .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
   .reveal.in { opacity: 1; transform: none; }
 
+  @media (min-width: 961px) {
+    h2 { font-size: clamp(36px, 4vw, 48px); }
+    .lede { max-width: 54ch; font-size: 18px; line-height: 1.6; }
+    .hero .lede { max-width: 560px; }
+    .hero-meta, .eyebrow { font-size: 13px; }
+    .feat h3 { font-size: 22px; }
+    .feat p, details p { font-size: 16px; }
+    .stat .value { font-size: 26px; }
+    .panel-head .t, .task-head .t, .task-row .tt { font-size: 16px; }
+    .score .name, .task-row .td, .stat .label { font-size: 14px; }
+    .notif-title, .score .val { font-size: 14px; }
+    .notif-sub, .stat .delta, .panel-head .score-max, .chart-legend span,
+    .score-note, .task-foot .cap, .live-pill, .badge { font-size: 12px; }
+    summary { font-size: 18px; }
+    footer { font-size: 14px; }
+  }
+  @media (min-width: 1201px) {
+    nav a, header .btn, #siteLanguage { font-size: 15px; }
+  }
+  @media (min-width: 1280px) {
+    .header-inner { display: grid; grid-template-columns: minmax(max-content, 1fr) auto minmax(max-content, 1fr); }
+    .header-inner .wordmark { justify-self: start; }
+    .header-actions { justify-self: end; }
+  }
   @media (max-width: 960px) {
     .trio { grid-template-columns: 1fr; }
     .dossier-grid, .deal-grid { grid-template-columns: 1fr; }
     .notif-stack { display: none; }
+
+  }
+  @media (max-width: 1200px) {
+    nav { gap: 6px; }
+    nav a { padding-inline: 9px; }
+  }
+  @media (max-width: 1040px) {
     nav { display: none; }
   }
   @media (max-width: 560px) {
+    :root { --header-h: 60px; --header-control-h: 36px; }
+    .header-inner { gap: 8px; padding-inline: 12px; }
+    #siteLanguage { max-width: min(28vw, 112px); }
+    .header-actions .btn { max-width: min(35vw, 150px); min-height: var(--header-control-h); height: auto; padding: 4px 8px; white-space: normal; }
     .dash-row { grid-template-columns: 1fr 1fr; }
     .stat:last-child { display: none; }
     .keycap { width: 32px; height: 32px; font-size: 11px; }
@@ -376,21 +470,46 @@
     html { scroll-behavior: auto; }
     .notif, .hero-cue, .wave i, .ticker-track { animation: none !important; }
     .reveal { opacity: 1; transform: none; transition: none; }
+    .wordmark, nav a, #siteLanguage, .btn, .task-row, summary { transition: none; }
+    .wordmark:active, nav a:active, .btn:active { scale: 1; }
+  }
+  @media (prefers-reduced-transparency: reduce) {
+    :root {
+      --glass: #f8fbff;
+      --glass-bright: #f8fbff;
+      --glass-filter: none;
+    }
+    header.scrolled { background: #eef5ff; }
+    .btn-glass, .btn-glass:hover { background: #233954; }
   }
 </style>
 </head>
 <body>
 
 <header id="topbar">
-  <a class="wordmark" href="./">aii0.com</a>
-  <nav aria-label="页面导航">
-    <a href="#why">亮点</a>
-    <a href="#dossier">域名档案</a>
-    <a href="#uses">适合做什么</a>
-    <a href="#deal">交易流程</a>
-    <a href="#faq">FAQ</a>
-  </nav>
-  <a class="btn btn-dark" href="mailto:email@aii0.com?subject=aii0.com%20%E8%AF%A2%E4%BB%B7">邮件询价 <span class="arr">↗</span></a>
+  <div class="wrap header-inner">
+    <a class="wordmark" dir="ltr" href="./">aii0.com</a>
+    <nav data-i18n-aria-label="navLabel" aria-label="Page navigation">
+      <a href="#why" data-i18n="highlights">Highlights</a>
+      <a href="#dossier" data-i18n="dossier">Domain Profile</a>
+      <a href="#uses" data-i18n="useCases">Use Cases</a>
+      <a href="#deal" data-i18n="deal">How to Buy</a>
+      <a href="#faq" data-i18n="faq">FAQ</a>
+    </nav>
+    <div class="header-actions">
+      <select id="siteLanguage" aria-label="语言" data-i18n-aria-label="language" dir="ltr">
+        <option value="en" lang="en">English</option>
+        <option value="zh-CN" lang="zh-CN">简体中文</option>
+        <option value="zh-Hant" lang="zh-Hant">繁體中文</option>
+        <option value="ja" lang="ja">日本語</option>
+        <option value="ko" lang="ko">한국어</option>
+        <option value="ar" lang="ar" dir="rtl">العربية</option>
+        <option value="fr" lang="fr">Français</option>
+        <option value="de" lang="de">Deutsch</option>
+      </select>
+      <a class="btn btn-dark" href="mailto:email@aii0.com?subject=aii0.com%20Purchase%20inquiry"><span data-i18n="inquire">Email an Inquiry</span> <span class="arr">↗</span></a>
+    </div>
+  </div>
 </header>
 
 <main>
@@ -401,43 +520,43 @@
 
     <div class="notif-stack" aria-hidden="true">
       <div class="notif">
-        <div class="notif-head"><span class="dot dot-g"></span><span class="notif-title">域名状态 · 在售</span><span class="notif-time">NOW</span></div>
-        <div class="notif-sub">询价通道已开启，邮件 24 小时内回复</div>
+        <div class="notif-head"><span class="dot dot-g"></span><span class="notif-title" data-i18n="forSale">Domain Status · For Sale</span><span class="notif-time" data-i18n="now">NOW</span></div>
+        <div class="notif-sub" data-i18n="reply">Open for inquiries. We reply by email within 24 hours.</div>
       </div>
       <div class="notif">
-        <div class="notif-head"><span class="dot dot-b"></span><span class="notif-title">Escrow 安全托管</span><span class="notif-time">SUPPORTED</span></div>
-        <div class="notif-sub">资金托管后过户，双方都有保障</div>
+        <div class="notif-head"><span class="dot dot-b"></span><span class="notif-title" data-i18n="escrow">Secure Escrow</span><span class="notif-time" data-i18n="supported">AVAILABLE</span></div>
+        <div class="notif-sub" data-i18n="transferProtection">Funds are held in escrow before transfer, protecting both parties.</div>
       </div>
       <div class="notif">
-        <div class="notif-head"><span class="dot dot-o"></span><span class="notif-title">读作 “AI-Zero”</span><span class="notif-time">4 CHARS</span></div>
-        <div class="notif-sub">AI 原生气质，天然带品牌记忆点</div>
+        <div class="notif-head"><span class="dot dot-o"></span><span class="notif-title" data-i18n="pronunciation">Pronounced “AI-Zero”</span><span class="notif-time" data-i18n="fourChars">4 CHARACTERS</span></div>
+        <div class="notif-sub" data-i18n="aiBrand">An AI-native name that sticks.</div>
       </div>
     </div>
 
     <div class="hero-inner">
-      <p class="eyebrow">For Sale · 四字符 .Com</p>
-      <h1 id="domain">aii0.com</h1>
-      <p class="lede">一个四字符 .com 域名，读作 “AI-Zero”。正在寻找下一位主人——也许是一支想从零开始的团队。</p>
+      <p class="eyebrow" data-i18n="heroEyebrow">For Sale · Four-Character .com</p>
+      <h1 id="domain" dir="ltr">aii0.com</h1>
+      <p class="lede" data-i18n="heroIntro">A four-character .com domain, pronounced “AI-Zero.” Looking for its next owner, perhaps a team ready to build from zero.</p>
       <div class="hero-cta">
-        <a class="btn btn-light" href="mailto:email@aii0.com?subject=aii0.com%20%E8%AF%A2%E4%BB%B7">邮件询价 <span class="arr">↗</span></a>
+        <a class="btn btn-light" href="mailto:email@aii0.com?subject=aii0.com%20Purchase%20inquiry"><span data-i18n="inquire">Email an Inquiry</span> <span class="arr">↗</span></a>
         <button class="btn btn-glass" type="button" data-copy="email@aii0.com">
           <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="4.5" y="4.5" width="8" height="8" rx="1.6" stroke="currentColor" stroke-width="1.3"/><path d="M9.5 4.5V3A1.5 1.5 0 0 0 8 1.5H3A1.5 1.5 0 0 0 1.5 3v5A1.5 1.5 0 0 0 3 9.5h1.5" stroke="currentColor" stroke-width="1.3"/></svg>
-          <span class="copy-label">复制邮箱</span>
+          <span class="copy-label" data-i18n="copyEmail">Copy Email</span>
         </button>
       </div>
-      <p class="hero-meta"><b>4</b> 字符 &nbsp;·&nbsp; <b>.com</b> 全球通用后缀 &nbsp;·&nbsp; 价格面议 &nbsp;·&nbsp; 支持 Escrow 托管</p>
+      <p class="hero-meta"><b>4</b> <span data-i18n="heroChars">characters ·</span> <b>.com</b> <span data-i18n="heroTerms">global extension · Price negotiable · Escrow available</span></p>
     </div>
-    <span class="hero-cue" aria-hidden="true">Scroll</span>
+    <span class="hero-cue" aria-hidden="true" data-i18n="scroll">Scroll</span>
   </section>
 
   <!-- ============ 场景跑马灯 ============ -->
   <div class="ticker" aria-hidden="true">
     <div class="ticker-track" id="tickerTrack">
       <div class="ticker-seq" id="tickerSeq">
-        <span>AI Agent</span><i>✦</i><span>AIGC Studio</span><i>✦</i><span>SaaS</span><i>✦</i><span>Dev Tool</span><i>✦</i><span>AI Hardware</span><i>✦</i><span>实验室</span><i>✦</i><span>独立开发者</span><i>✦</i><span>品牌官网</span><i>✦</i><span>个人主页</span><i>✦</i><span>Newsletter</span><i>✦</i>
+        <span data-i18n="aiAgent">AI Agent</span><i>✦</i><span data-i18n="aigcStudio">AI Content Studio</span><i>✦</i><span>SaaS</span><i>✦</i><span data-i18n="devTool">Developer Tools</span><i>✦</i><span data-i18n="aiHardware">AI Hardware</span><i>✦</i><span data-i18n="lab">Lab</span><i>✦</i><span data-i18n="indie">Indie Developer</span><i>✦</i><span data-i18n="brandSite">Brand Website</span><i>✦</i><span data-i18n="personalSite">Personal Site</span><i>✦</i><span data-i18n="newsletter">Newsletter</span><i>✦</i>
       </div>
       <div class="ticker-seq" aria-hidden="true">
-        <span>AI Agent</span><i>✦</i><span>AIGC Studio</span><i>✦</i><span>SaaS</span><i>✦</i><span>Dev Tool</span><i>✦</i><span>AI Hardware</span><i>✦</i><span>实验室</span><i>✦</i><span>独立开发者</span><i>✦</i><span>品牌官网</span><i>✦</i><span>个人主页</span><i>✦</i><span>Newsletter</span><i>✦</i>
+        <span data-i18n="aiAgent">AI Agent</span><i>✦</i><span data-i18n="aigcStudio">AI Content Studio</span><i>✦</i><span>SaaS</span><i>✦</i><span data-i18n="devTool">Developer Tools</span><i>✦</i><span data-i18n="aiHardware">AI Hardware</span><i>✦</i><span data-i18n="lab">Lab</span><i>✦</i><span data-i18n="indie">Indie Developer</span><i>✦</i><span data-i18n="brandSite">Brand Website</span><i>✦</i><span data-i18n="personalSite">Personal Site</span><i>✦</i><span data-i18n="newsletter">Newsletter</span><i>✦</i>
       </div>
     </div>
   </div>
@@ -446,28 +565,28 @@
   <section class="block" id="why" aria-labelledby="why-title">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow">1.0 — Why aii0</p>
-        <h2 id="why-title">很短，很好记，天然带 AI 气质。</h2>
-        <p class="lede">四字符 .com 是稀缺资源，而 “aii0” 这组字符在 AI 时代几乎是为品牌而生的。</p>
+        <p class="eyebrow" data-i18n="whyEyebrow">1.0 — Why aii0</p>
+        <h2 id="why-title" data-i18n="whyTitle">Short, memorable, and made for AI.</h2>
+        <p class="lede" data-i18n="whyIntro">Four-character .com domains are scarce. In the AI era, aii0 feels right at home as a brand name.</p>
       </div>
       <div class="trio">
         <article class="feat reveal">
           <span class="feat-visual"><span class="keycap-sm">a</span><span class="keycap-sm">i</span><span class="keycap-sm">i</span><span class="keycap-sm hot">0</span></span>
           <p class="idx">1.1</p>
-          <h3>四个字符，一眼记住</h3>
-          <p>4 字符 .com 全球存量有限且持续减少。短意味着好念、好拼、好在名片和口播里说出来不打折。</p>
+          <h3 data-i18n="shortTitle">Four characters you can remember at a glance</h3>
+          <p data-i18n="shortBody">The supply of four-character .com domains is limited and shrinking. A short name is easy to say, easy to spell, and fits on a business card or in a pitch.</p>
         </article>
         <article class="feat reveal">
           <span class="feat-visual"><span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></span>
           <p class="idx">1.2</p>
-          <h3>读作 “AI-Zero”</h3>
-          <p>前缀 ai、结尾 0，像 “AI 从零开始”。适合 AI 产品、实验室、agent 项目或独立开发者品牌。</p>
+          <h3 data-i18n="pronunciation">Pronounced “AI-Zero”</h3>
+          <p data-i18n="aiBody">The prefix “ai” and the final “0” suggest building AI from zero. It suits an AI product, lab, agent project, or independent developer brand.</p>
         </article>
         <article class="feat reveal">
           <span class="feat-visual"><span class="globe" aria-hidden="true"><em></em></span></span>
           <p class="idx">1.3</p>
-          <h3>跨语言都好念</h3>
-          <p>纯字母加数字，无生僻拼写。中文读 “爱零”，英文读 “AI-zero”，中日英市场都顺口。</p>
+          <h3 data-i18n="languageTitle">Easy to say across languages</h3>
+          <p data-i18n="languageBody">Just letters and a number, with no unusual spelling. It can be read as “ài líng” in Chinese and “AI-Zero” in English, and is easy to say in Chinese, Japanese, and English.</p>
         </article>
       </div>
     </div>
@@ -476,21 +595,21 @@
   <!-- ============ 2.0 域名档案 ============ -->
   <section class="block" id="dossier" aria-labelledby="dossier-title">
     <div class="wrap dossier-grid">
-      <div class="sec-head reveal" style="margin-bottom:0;">
-        <p class="eyebrow">2.0 — Dossier</p>
-        <h2 id="dossier-title">域名档案</h2>
-        <p class="lede">注册信息可在 WHOIS 公开查询，交易细节支持邮件与托管平台全程留痕。以下评分为卖方自评，仅供参考。</p>
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-i18n="dossierEyebrow">2.0 — Domain Profile</p>
+        <h2 id="dossier-title" data-i18n="dossier">Domain Profile</h2>
+        <p class="lede" data-i18n="dossierIntro">Registration details are available through public WHOIS records. Email and escrow platforms can provide a record of the transaction. The scores below are the seller’s own ratings, for reference only.</p>
       </div>
       <div class="dash">
         <div class="dash-row reveal">
-          <div class="stat"><div class="label">名称</div><div class="value">aii0</div><span class="delta delta-up">可注册组合 ↓</span></div>
-          <div class="stat"><div class="label">后缀</div><div class="value">.com</div><span class="delta delta-up">通用顶级域</span></div>
-          <div class="stat"><div class="label">长度</div><div class="value">4</div><span class="delta delta-warm">稀缺</span></div>
+          <div class="stat"><div class="label" data-i18n="name">Name</div><div class="value">aii0</div><span class="delta delta-up" data-i18n="combinations">Available combinations ↓</span></div>
+          <div class="stat"><div class="label" data-i18n="extension">Extension</div><div class="value">.com</div><span class="delta delta-up" data-i18n="genericTld">Generic top-level domain</span></div>
+          <div class="stat"><div class="label" data-i18n="length">Length</div><div class="value">4</div><span class="delta delta-warm" data-i18n="rare">Scarce</span></div>
         </div>
         <div class="panel reveal">
-          <div class="panel-head"><span class="t">四字符 .com · 存量趋势（示意）</span><span class="live-pill"><span class="dot dot-g"></span>LIVE</span></div>
+          <div class="panel-head"><span class="t" data-i18n="trendTitle">Four-Character .com Availability (Illustrative)</span><span class="live-pill"><span class="dot dot-g"></span><span data-i18n="live">LIVE</span></span></div>
           <div class="chart-body">
-            <svg viewBox="0 0 450 96" role="img" aria-label="四字符 .com 域名存量下降趋势示意图">
+            <svg viewBox="0 0 450 96" role="img" data-i18n-aria-label="chartLabel" aria-label="Illustration of declining availability for four-character .com domains">
               <line x1="0" y1="10" x2="450" y2="10" stroke="rgba(0,0,0,.05)"/>
               <line x1="0" y1="38" x2="450" y2="38" stroke="rgba(0,0,0,.05)"/>
               <line x1="0" y1="66" x2="450" y2="66" stroke="rgba(0,0,0,.05)"/>
@@ -501,18 +620,18 @@
             </svg>
           </div>
           <div class="chart-legend">
-            <span><span class="sw" style="background:#202020"></span>未注册存量</span>
-            <span><span class="sw" style="background:rgba(32,32,32,.2)"></span>趋势区间</span>
+            <span><span class="sw" style="background:#202020"></span><span data-i18n="available">Unregistered domains</span></span>
+            <span><span class="sw" style="background:rgba(32,32,32,.2)"></span><span data-i18n="trendRange">Trend range</span></span>
           </div>
-          <p class="score-note">* 示意曲线：短 .com 域名被持续注册，可流通组合逐年减少。</p>
+          <p class="score-note" data-i18n="trendNote">* Illustrative curve. As short .com domains are registered, fewer combinations remain available.</p>
         </div>
         <div class="panel reveal">
-          <div class="panel-head"><span class="t">品牌适配评分（卖方自评）</span><span class="mono" style="font-size:10px;color:var(--faint)">OUT OF 100</span></div>
+          <div class="panel-head"><span class="t" data-i18n="scoreTitle">Brand Fit (Seller’s Ratings)</span><span class="mono score-max" data-i18n="scoreMax">OUT OF 100</span></div>
           <div class="score-body">
-            <div class="score"><span class="name">简短度</span><span class="track"><span class="fill" style="width:98%"></span></span><span class="val">98</span></div>
-            <div class="score"><span class="name">记忆度</span><span class="track"><span class="fill" style="width:92%"></span></span><span class="val">92</span></div>
-            <div class="score"><span class="name">发音度</span><span class="track"><span class="fill" style="width:88%"></span></span><span class="val">88</span></div>
-            <div class="score"><span class="name">品牌感</span><span class="track"><span class="fill" style="width:94%"></span></span><span class="val">94</span></div>
+            <div class="score"><span class="name" data-i18n="brevity">Brevity</span><span class="track"><span class="fill" style="width:98%"></span></span><span class="val">98</span></div>
+            <div class="score"><span class="name" data-i18n="memorability">Recall</span><span class="track"><span class="fill" style="width:92%"></span></span><span class="val">92</span></div>
+            <div class="score"><span class="name" data-i18n="pronounceability">Ease of saying</span><span class="track"><span class="fill" style="width:88%"></span></span><span class="val">88</span></div>
+            <div class="score"><span class="name" data-i18n="brandFit">Brand appeal</span><span class="track"><span class="fill" style="width:94%"></span></span><span class="val">94</span></div>
           </div>
         </div>
       </div>
@@ -522,10 +641,10 @@
   <!-- ============ 3.0 适合做什么 ============ -->
   <section class="block" id="uses" aria-labelledby="uses-title">
     <div class="wrap">
-      <div class="sec-head reveal" style="margin-inline:auto;">
-        <p class="eyebrow">3.0 — Use Cases</p>
-        <h2 id="uses-title">拿到它能做什么？</h2>
-        <p class="lede">用不同的子域名，为开发项目、个人作品和更多创意各留一个入口。</p>
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-i18n="usesEyebrow">3.0 — Use Cases</p>
+        <h2 id="uses-title" data-i18n="usesTitle">What could you build with it?</h2>
+        <p class="lede" data-i18n="usesIntro">Give development projects, personal work, and new ideas their own home with subdomains.</p>
       </div>
       <div class="board reveal" id="board">
         <div class="board-row" aria-hidden="true"></div>
@@ -537,37 +656,37 @@
   <!-- ============ 4.0 交易流程 ============ -->
   <section class="block" id="deal" aria-labelledby="deal-title">
     <div class="wrap deal-grid">
-      <div class="sec-head reveal" style="margin-bottom:0;">
-        <p class="eyebrow">4.0 — Deal</p>
-        <h2 id="deal-title">交易流程，四步走完</h2>
-        <p class="lede">全程支持第三方托管。钱先放进托管账户，域名过户确认后再放款，双方都有保障。通常 3–7 天完成。</p>
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-i18n="dealEyebrow">4.0 — The Deal</p>
+        <h2 id="deal-title" data-i18n="dealTitle">Four steps to complete the sale</h2>
+        <p class="lede" data-i18n="dealIntro">Third-party escrow is available throughout. Funds are held securely and released after the domain transfer is confirmed, protecting both parties. The process usually takes 3–7 days.</p>
       </div>
       <div class="reveal">
         <div class="task-card">
-          <div class="task-head"><span class="dot dot-g"></span><span class="t">aii0.com · 交割看板</span><span class="live-pill" style="margin-left:auto"><span class="mono" style="color:var(--faint)">EST. 3–7 DAYS</span></span></div>
+          <div class="task-head"><span class="dot dot-g"></span><span class="t" data-i18n="dealBoard">aii0.com · Transfer Checklist</span><span class="live-pill" style="margin-inline-start:auto"><span class="mono" style="color:var(--faint)" data-i18n="estimate">EST. 3–7 DAYS</span></span></div>
           <button type="button" class="task-row" aria-pressed="false">
             <span class="ti ti-done">✓</span>
-            <span><span class="tt">邮件询价</span><span class="td">说明预算区间与用途</span></span>
-            <span class="badge b-you">你的动作</span>
+            <span><span class="tt" data-i18n="inquire">Email an Inquiry</span><span class="td" data-i18n="budget">Share your budget range and intended use</span></span>
+            <span class="badge b-you" data-i18n="yourAction">YOUR ACTION</span>
           </button>
           <button type="button" class="task-row" aria-pressed="true">
             <span class="ti ti-now">2</span>
-            <span><span class="tt">报价与确认</span><span class="td">双方确认价格、币种与条款</span></span>
-            <span class="badge b-you">你的动作</span>
+            <span><span class="tt" data-i18n="quote">Offer and Agreement</span><span class="td" data-i18n="quoteDetail">Both parties agree on the price, currency, and terms</span></span>
+            <span class="badge b-you" data-i18n="yourAction">YOUR ACTION</span>
           </button>
           <button type="button" class="task-row" aria-pressed="false">
             <span class="ti ti-wait">3</span>
-            <span><span class="tt">资金托管</span><span class="td">Escrow / 平台托管，资金先行冻结</span></span>
+            <span><span class="tt" data-i18n="fund">Fund Escrow</span><span class="td" data-i18n="fundDetail">Escrow.com or another platform holds the funds first</span></span>
             <span class="badge b-escrow">Escrow</span>
           </button>
           <button type="button" class="task-row" aria-pressed="false">
             <span class="ti ti-wait">4</span>
-            <span><span class="tt">过户与交付</span><span class="td">注册商转移 + DNS 交接，确认后放款</span></span>
-            <span class="badge b-reg">注册商</span>
+            <span><span class="tt" data-i18n="handoff">Transfer and Handoff</span><span class="td" data-i18n="handoffDetail">Transfer the domain and hand over DNS. Release funds after confirmation</span></span>
+            <span class="badge b-reg" data-i18n="registrar">REGISTRAR</span>
           </button>
           <div class="task-foot">
             <div class="bar"><i id="dealBar" style="width:50%"></i></div>
-            <p class="cap" id="dealStatus" aria-live="polite">进度示意 · Step 2 / 4 · 报价确认中</p>
+            <p class="cap" id="dealStatus" aria-live="polite">Illustrative progress · Step 2 of 4 · Offer and Agreement</p>
           </div>
         </div>
       </div>
@@ -577,30 +696,30 @@
   <!-- ============ 5.0 FAQ ============ -->
   <section class="block" id="faq" aria-labelledby="faq-title">
     <div class="wrap">
-      <div class="sec-head reveal" style="text-align:center;">
-        <p class="eyebrow" style="justify-content:center;">5.0 — FAQ</p>
-        <h2 id="faq-title">常见问题</h2>
+      <div class="sec-head reveal">
+        <p class="eyebrow" style="justify-content:center;" data-i18n="faqEyebrow">5.0 — FAQ</p>
+        <h2 id="faq-title" data-i18n="faqTitle">Frequently Asked Questions</h2>
       </div>
       <div class="faq-list reveal">
         <details>
-          <summary>价格怎么谈？有底价吗？<span class="plus" aria-hidden="true"></span></summary>
-          <p>价格面议。邮件里注明预算区间和用途即可，报价合理都会认真回复。诚意的报价会得到优先处理。</p>
+          <summary><span data-i18n="priceQ">How do we agree on a price? Is there a minimum?</span><span class="plus" aria-hidden="true"></span></summary>
+          <p data-i18n="priceA">The price is negotiable. Email your budget range and intended use. Reasonable offers will receive a considered reply, with priority given to serious offers.</p>
         </details>
         <details>
-          <summary>支持哪些交易方式？<span class="plus" aria-hidden="true"></span></summary>
-          <p>推荐 Escrow.com 第三方托管，也支持主流域名交易平台。买家承担托管手续费（可协商）。不支持无托管的直接私下转账。</p>
+          <summary><span data-i18n="escrowQ">What payment methods do you support?</span><span class="plus" aria-hidden="true"></span></summary>
+          <p data-i18n="escrowA">Escrow.com is recommended, and major domain marketplaces are also supported. The buyer covers the escrow fee, subject to negotiation. Direct transfers without escrow are not accepted.</p>
         </details>
         <details>
-          <summary>过户需要多久？<span class="plus" aria-hidden="true"></span></summary>
-          <p>托管放款条件达成后，注册商转移一般 1–5 天完成；同注册商内转移（push）可当天完成。DNS 记录交接会提前和你对齐。</p>
+          <summary><span data-i18n="timingQ">How long does the transfer take?</span><span class="plus" aria-hidden="true"></span></summary>
+          <p data-i18n="timingA">Once the escrow release conditions are met, a transfer between registrars usually takes 1–5 days. A push within the same registrar can be completed the same day. We’ll coordinate the DNS handoff with you in advance.</p>
         </details>
         <details>
-          <summary>可以先租用或分期吗？<span class="plus" aria-hidden="true"></span></summary>
-          <p>长期租赁或分期看具体方案，可以邮件聊。但域名实际过户会在款项结清后进行。</p>
+          <summary><span data-i18n="installmentsQ">Can I lease the domain or pay in installments?</span><span class="plus" aria-hidden="true"></span></summary>
+          <p data-i18n="installmentsA">Long-term leases or installment plans may be possible depending on the proposal. Email to discuss the terms. Ownership is transferred after full payment.</p>
         </details>
         <details>
-          <summary>除了邮件，还有别的联系方式吗？<span class="plus" aria-hidden="true"></span></summary>
-          <p>目前以邮件沟通为主：<a href="mailto:email@aii0.com">email@aii0.com</a>。邮件主题写明 aii0.com，一般 24 小时内回复。</p>
+          <summary><span data-i18n="contactQ">Is there another way to get in touch?</span><span class="plus" aria-hidden="true"></span></summary>
+          <p><span data-i18n="contactBefore">Email is the main way to reach us: </span><a href="mailto:email@aii0.com" dir="ltr">email@aii0.com</a><span data-i18n="contactAfter">. Include aii0.com in the subject line. We usually reply within 24 hours.</span></p>
         </details>
       </div>
     </div>
@@ -609,20 +728,20 @@
   <!-- ============ 6.0 收尾 CTA ============ -->
   <section class="block" id="contact" aria-labelledby="contact-title">
     <div class="wrap">
-      <div class="sec-head reveal" style="margin-inline:auto; margin-bottom:0;">
-        <p class="eyebrow" style="justify-content:center;">6.0 — Contact</p>
-        <h2 id="contact-title">把 aii0.com 带回家</h2>
-        <p class="lede">带上你的项目想法和预算区间，写一封邮件。剩下的交给我们聊。</p>
+      <div class="sec-head reveal">
+        <p class="eyebrow" style="justify-content:center;" data-i18n="contactEyebrow">6.0 — Contact</p>
+        <h2 id="contact-title" data-i18n="contactTitle">Make aii0.com yours</h2>
+        <p class="lede" data-i18n="contactIntro">Email your project idea and budget range, and we’ll take it from there.</p>
       </div>
       <figure class="art-frame reveal">
-        <img src="park.png" alt="像素画：草地上一台打开的笔记本电脑，面朝大海" loading="lazy" fetchpriority="low">
-        <figcaption>aii0.com · 价格面议</figcaption>
+        <img src="park.png" data-i18n-alt="parkAlt" alt="Pixel art of an open laptop on the grass overlooking the sea" loading="lazy" fetchpriority="low">
+        <figcaption data-i18n="negotiable">aii0.com · Price Negotiable</figcaption>
       </figure>
       <div class="contact-cta reveal">
-        <a class="btn btn-dark" href="mailto:email@aii0.com?subject=aii0.com%20%E8%AF%A2%E4%BB%B7">邮件询价 <span class="arr">↗</span></a>
+        <a class="btn btn-dark" href="mailto:email@aii0.com?subject=aii0.com%20Purchase%20inquiry"><span data-i18n="inquire">Email an Inquiry</span> <span class="arr">↗</span></a>
         <button class="btn btn-light" type="button" data-copy="email@aii0.com">
           <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="4.5" y="4.5" width="8" height="8" rx="1.6" stroke="currentColor" stroke-width="1.3"/><path d="M9.5 4.5V3A1.5 1.5 0 0 0 8 1.5H3A1.5 1.5 0 0 0 1.5 3v5A1.5 1.5 0 0 0 3 9.5h1.5" stroke="currentColor" stroke-width="1.3"/></svg>
-          <span class="copy-label">复制邮箱</span>
+          <span class="copy-label" data-i18n="copyEmail">Copy Email</span>
         </button>
       </div>
       <p class="contact-note reveal">Escrow Supported · 24h Reply · Since aii0</p>
@@ -631,14 +750,25 @@
 </main>
 
 <footer>
-  <span>aii0.com · 域名出售</span>
-  <span class="mono">EMAIL@AII0.COM</span>
+  <div class="wrap footer-inner">
+    <span data-i18n="siteTitle">aii0.com · Domain for Sale</span>
+    <span class="mono">EMAIL@AII0.COM</span>
+  </div>
 </footer>
 
 <script>
 (function () {
   "use strict";
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduceMotion && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    document.querySelectorAll(".wordmark, nav a, .btn-light, .task-row, summary").forEach(function (control) {
+      control.addEventListener("pointermove", function (event) {
+        var bounds = control.getBoundingClientRect();
+        control.style.setProperty("--light-x", (event.clientX - bounds.left) + "px");
+        control.style.setProperty("--light-y", (event.clientY - bounds.top) + "px");
+      });
+    });
+  }
 
   /* --- 顶栏滚动态 --- */
   var topbar = document.getElementById("topbar");
@@ -646,17 +776,63 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
+  var languageSelect = document.getElementById("siteLanguage");
+  var activeLanguage = document.documentElement.lang;
+  var messages = {
+    copyEmail: "Copy Email",
+    copied: "Copied ✓",
+    progress: "Illustrative progress · Step {current} of {total} · {step}"
+  };
+  var languageRequest = 0;
+
+  async function setLanguage(language) {
+    var request = ++languageRequest;
+    try {
+      var response = await fetch("/locales/" + language + ".json");
+      if (!response.ok) throw new Error("Locale request failed: " + response.status);
+      var translations = await response.json();
+      if (request !== languageRequest) return;
+      messages = translations;
+      document.documentElement.lang = language;
+      document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+      document.querySelectorAll("[data-i18n]").forEach(function (node) {
+        node.textContent = messages[node.dataset.i18n];
+      });
+      ["content", "alt", "aria-label"].forEach(function (attribute) {
+        var marker = "data-i18n-" + attribute;
+        document.querySelectorAll("[" + marker + "]").forEach(function (node) {
+          node.setAttribute(attribute, messages[node.getAttribute(marker)]);
+        });
+      });
+      document.querySelectorAll('a[href^="mailto:email@aii0.com?subject="]').forEach(function (link) {
+        link.href = "mailto:email@aii0.com?subject=" + encodeURIComponent("aii0.com " + messages.subject);
+      });
+      renderDealStatus();
+      activeLanguage = language;
+      try { localStorage.setItem("siteLanguage", language); } catch (_) {}
+    } catch (error) {
+      if (request === languageRequest) languageSelect.value = activeLanguage;
+      console.error("Unable to load site language", error);
+    }
+  }
+
   /* --- 复制邮箱 --- */
   var EMAIL = "email@aii0.com";
   document.querySelectorAll("[data-copy]").forEach(function (btn) {
     var label = btn.querySelector(".copy-label");
+    var resetCopyLabel;
     btn.addEventListener("click", function () {
       function done(ok) {
         if (label) {
-          var old = label.textContent;
-          label.textContent = ok ? "已复制 ✓" : EMAIL;
+          clearTimeout(resetCopyLabel);
+          label.dataset.i18n = ok ? "copied" : "copyEmail";
+          label.textContent = ok ? messages.copied : EMAIL;
           btn.classList.toggle("copied", ok);
-          setTimeout(function () { label.textContent = old; btn.classList.remove("copied"); }, 1600);
+          resetCopyLabel = setTimeout(function () {
+            label.dataset.i18n = "copyEmail";
+            label.textContent = messages.copyEmail;
+            btn.classList.remove("copied");
+          }, 1600);
         }
       }
       if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -683,10 +859,32 @@
       });
       var current = selected + 1;
       document.getElementById("dealBar").style.width = (current / steps.length * 100) + "%";
-      document.getElementById("dealStatus").textContent =
-        "进度示意 · Step " + current + " / " + steps.length + " · " + step.querySelector(".tt").textContent;
+      renderDealStatus();
     });
   });
+
+  function renderDealStatus() {
+    var selected = Array.from(steps).findIndex(function (step) {
+      return step.getAttribute("aria-pressed") === "true";
+    });
+    document.getElementById("dealStatus").textContent = messages.progress
+      .replace("{current}", selected + 1)
+      .replace("{total}", steps.length)
+      .replace("{step}", steps[selected].querySelector(".tt").textContent);
+  }
+
+  languageSelect.addEventListener("change", function () {
+    setLanguage(languageSelect.value);
+  });
+  try {
+    var savedLanguage = localStorage.getItem("siteLanguage");
+    if (savedLanguage && Array.from(languageSelect.options).some(function (option) {
+      return option.value === savedLanguage;
+    })) {
+      languageSelect.value = savedLanguage;
+      if (savedLanguage !== activeLanguage) setLanguage(savedLanguage);
+    }
+  } catch (_) {}
 
   /* --- 入场动画 --- */
   var io = new IntersectionObserver(function (entries) {

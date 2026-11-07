@@ -11,7 +11,11 @@ const routes = new Map([
 ]);
 
 createServer((request, response) => {
-  const route = routes.get(new URL(request.url, 'http://localhost').pathname);
+  const pathname = new URL(request.url, 'http://localhost').pathname;
+  const locale = /^\/locales\/([a-z]{2}(?:-[A-Za-z]{2,4})?)\.json$/.exec(pathname);
+  const route = locale
+    ? [`locales/${locale[1]}.json`, 'application/json; charset=utf-8']
+    : routes.get(pathname);
   const file = route && join(__dirname, 'dist', route[0]);
   if (!file || !existsSync(file)) {
     response.writeHead(404).end('Not found. Run npm run build first.');
